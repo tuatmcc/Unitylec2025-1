@@ -118,3 +118,19 @@ Hierarchyで`Plane`を選択すると、Inspectorに`Plane`のプロパティが
   * マテリアルを設定するプロパティ
 
 ![Inspector Plane](./planeproperties.png)
+
+## 3.2. ボールを作る
+
+Hierarchyで右クリック -> 3D Object -> Sphere を選択
+
+![Create Sphere](./createball.gif)
+
+このままでは地面にめり込んでいるので、`Sphere`の`Trasform`の`Position`の`Y`を`5`に変更します。
+
+![ChangePos](./changepos.png)
+
+いい感じの位置になりました！
+
+![set Sphere Position](./setballposition.png)
+
+`Ctrl + S` で定期的に保存することを忘れないでください。
