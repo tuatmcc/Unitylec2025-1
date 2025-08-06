@@ -134,3 +134,31 @@ Hierarchyで右クリック -> 3D Object -> Sphere を選択
 ![set Sphere Position](./setballposition.png)
 
 `Ctrl + S` で定期的に保存することを忘れないでください。
+
+# 4. ボールを重力で落下させる
+
+ここでは、ボールを重力で落下させます。
+
+エディターの上の方にある再生ボタン▶を押すと、ゲームが実行されます。押してみましょう．停止ボタン■を押すと、ゲームが停止します。
+
+![Play Button](./playnorb.gif)
+
+何も起こりません！
+
+先ほど作成した`Sphere`には,物理演算を行う要素(コンポーネント)がついていません。そのため,ボールが重力で落下することはありません。`Sphere`に物理演算を行う要素を追加しましょう。
+
+`Hierarchy`で`Sphere`を選択し、`Inspector`で下の方にある`Add Component` -> `Physics` -> `Rigidbody` をクリック
+
+![setrbody](./setrb.gif)
+
+`Sphere`に`Rigidbody`が追加されました！
+
+![addedrb](./addedrb.png)
+
+上の方にある再生ボタン▶を押してみてください。ボールが落下します。
+
+![checkrb](./checkrb.gif)
+
+ボールが自由落下するのを確認できたら、必ず停止ボタン■を押して再生を停止してください。
+
+また, こまめに`Ctrl + S` で保存することを忘れないでください。
