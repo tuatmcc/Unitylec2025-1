@@ -73,10 +73,48 @@ Unity のプロジェクトを作ります. 左の `Projects` をクリックし
 
 ![Exprain Editor](./expraineditor.png)
 
-タブの切り替えは, タブの右上のタブの名前の部分をクリックすることで切り替えることができます.
+重なってるタブの切り替えは, タブの右上のタブの名前の部分をクリックすることで切り替えることができます.
 
 ![scene-gametab](scene-gametab.gif)
 
 それぞれのタブの詳しい説明は, 実際にゲームを作りながら説明していきます.
 
 # 3. オブジェクトを配置する
+
+ここでは, シーンにオブジェクトを配置します. 現在, `SampleScene` という名前のシーンが開いています. `Hierarchy` タブに `SampleScene` と書かれた項目があるはずです. これが現在開いているシーンです. シーンとは, ゲームの1つの画面を表すものです. Unityでは, シーンごとにゲームの場面を管理します.
+
+タイトルシーンや, バトルシーン, マップシーンなど, ゲームの場面ごとにシーンを分けて管理することができます.
+
+`SampleScene` となってる名前を `MainScene` に変更しましょう. `Assets` タブで, `Scenes` フォルダを開き, `SampleScene` を右クリックして, `Rename` を選択します. そして, `MainScene` と入力してください.
+
+![remenesamplescene](./renamesamplescene.gif)
+
+これで, `Hierarchy` タブにあるシーンの名前が `MainScene` に変更されました.
+
+![renamedsamplescene](renamedsamplescene.png)
+
+## 3.1. 板を配置する
+
+シーンに板を配置します. まず, `Hierarchy` タブ上で右クリックして, `3D Object` → `Plane` を選択します. すると, シーンに板が配置されます.
+
+![Create Plane](./createplane.gif)
+
+シーン名に `*` がついているのは, シーンが保存されていないことを示しています. `ctrl + S` でシーンを保存してください.
+
+Hierarchyで`Plane`を選択すると、Inspectorに`Plane`のプロパティが表示されます。
+
+`Plane`には`Trasform`, `Mesh Filter`, `Mesh Renderer`, `Mesh Collider`の要素(Component)がついています。それぞれの役針は以下の通りです。
+
+* Transform
+  * 座標や傾きといった3D空間の位置情報プロパティ
+
+* Mesh Filter, Mesh Renderer
+  * レンダリングに関するプロパティ
+
+* Collider (Mesh Collider)
+  * 3Dモデルに当たり判定をつけるプロパティ
+
+* (Material)
+  * マテリアルを設定するプロパティ
+
+![Inspector Plane](./planeproperties.png)
