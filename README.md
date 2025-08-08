@@ -512,8 +512,94 @@ public class BallController : MonoBehaviour
 
 変数 `score` は `int` 型の変数です。得点を保持します。
 
-`OnCollisionEnter` 関数は、ゲームオブジェクトが他のゲームオブジェクトに衝突したときに呼び出される関数です。Unity が自動的に呼び出してくれます.
+`OnCollisionEnter` 関数は、ゲームオブジェクトが他のゲームオブジェクトに衝突(Collision)したときに呼び出される関数です。Unity が自動的に呼び出してくれます.
 
 `OnCollisionEnter` 関数の引数で渡された `Collision` 型の変数 `collision` に衝突したゲームオブジェクトの情報が入っています。`collision.gameObject.name` で衝突したゲームオブジェクトの名前を取得できます。ここでは、`collision.gameObject.name` が `Score(Clone)` と文字列が同じなら得点を加算し、コンソールに現在のスコアを表示し、衝突したゲームオブジェクトを削除しています。C#では,文字列同士を比較する場合は `==` 演算子を使います(C言語ではできないよ！)。
 
 `Debug.Log` 関数は、コンソールにログを表示する関数です。C#では便利なことに、文字列型と数値型を足すと、数値が文字列に変換され,自動的に文字列連結になります。`Destroy` 関数は、引数で指定されたゲームオブジェクトを削除します。ここでは、衝突したゲームオブジェクト(`Score`)を削除しています。
+
+# 8. ステージの調整
+
+ここでは、ステージを調整します。
+
+`Plane` の `Scale` を (5, 1, 5) に変更してください。
+
+![planescale](./planescale.png)
+
+ステージの壁も作りましょう。`Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択。名前は `Wall` に変更してください。そして 4 方向分作るので、`Wall` を選択したまま `Ctrl + D` で複製してください。以下の画像のようになります。
+
+![wall4](./wall4.png)
+
+4 つの Wall の Position と Scale をそれぞれ以下のように変更してください。(写真は1つ目)
+
+* Position (0, 2, 20), Scale (40, 4, 1)
+* Position (0, 2, -20), Scale (40, 4, 1)
+* Position (20, 2, 0), Scale (1, 4, 40)
+* Position (-20, 2, 0), Scale (1, 4, 40)
+
+![changewallpos](./changewallpos.png)
+
+また、今のままでは、スコアにふれると一瞬ボールの動きが止まってしまいます。これは物理演算をするための当たり判定があるためです。このゲームでは,スコアの当たり判定は物理演算の当たり判定ではなく,スコアに触れたかどうかを判定するだけで十分です。そこで、Project にある `Score` プレバブの `Box Collider` の `Is Trigger` にチェックを入れてください。
+
+![changetrigger](./changetrigger.png)
+
+そして、`BallController` の `OnCollisionEnter` 関数を `OnTriggerEnter` 関数に変更してください。
+
+```csharp title="BallController.cs" showLineNumbers
+using UnityEngine;
+
+public class BallController : MonoBehaviour
+{
+    private Rigidbody _rb;
++   private int _score = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.W))
+        {
+            _rb.AddForce(new Vector3(0, 0, 1));
+        }
+
+        if(Input.GetKey(KeyCode.S))
+        {
+            _rb.AddForce(new Vector3(0, 0, -1));
+        }
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            _rb.AddForce(new Vector3(-1, 0, 0));
+        }
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            _rb.AddForce(new Vector3(1, 0, 0));
+        }
+    }
+
+-   private void OnCollisionEnter(Collision collision)
++   private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.name == "Score(Clone)")
+        {
+            score++;
+            Debug.Log("Score: " + score);
+            Destroy(collision.gameObject);
+        }
+    }
+}
+```
+
+再生ボタンを押してみてください。スコアにふれてもボールの動きが止まらなくなりました。
+
+![playcheckdestryscore](./playcheckdestryscore.gif)
+
+## 8.1. スクリプトの説明
+
+ただの当たり判定は,物理演算に影響を与えます.しかし,今回のように触れたら回収するアイテムといったものや,特定のエリアへの侵入検知などは,物理演算に影響を与えない当たり判定が必要です.そこで,`Collider` コンポーネントの `Is Trigger` を有効にします。これにより、当たり判定はあるけど物理演算には影響を与えない状態になります。`Is Trigger` を有効にした `Collider` コンポーネントは、`OnTriggerEnter` 関数を使って当たり判定を検知します。
