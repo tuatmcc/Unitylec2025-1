@@ -437,3 +437,83 @@ public class CameraController : MonoBehaviour
 変数 `offset` は `Vector3` 型の変数です。カメラの位置を調整するための変数です。`playerObject` の座標に `offset` を加えた座標にカメラを移動させます。
 
 `transform.position` は、そのスクリプトをアタッチしたゲームオブジェクトの座標を表します。`transform` というTransform型の変数の中に `position` というVector3型の変数が入っています(C言語の構造体みたいですね！). `CameraController` は `Main Camera` ゲームオブジェクトにアタッチしてるので、`playerObject` (`Sphere`) の座標(`playerObject.position`)に `offset` を加えた座標にカメラを移動させています。`Transform` コンポーネントは,`GetComponent` 関数を使わなくても**参照**することができます. `playerObject.position` と `offset` は `+` 演算子で加算できます。`Vector3` 型の変数同士は、`+` 演算子が,各要素の加算をするように定義されています。なので,`new Vector3(playerObject.position.x + offset.x, playerObject.position.y + offset.y, playerObject.position.z + offset.z)` のように書く必要はありません(便利ですね！)。
+
+# 7. 得点を回収する
+
+ここでは、ボールが得点に触れたら得点を回収する処理を追加します。
+
+## 7.1. `BallController` が得点を回収するできるようにする
+
+`BallController` を以下のように書き換えてください。
+
+```csharp title="BallController.cs" showLineNumbers
+using UnityEngine;
+
+public class BallController : MonoBehaviour
+{
+    private Rigidbody _rb;
++   private int _score = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.W))
+        {
+            _rb.AddForce(new Vector3(0, 0, 1));
+        }
+
+        if(Input.GetKey(KeyCode.S))
+        {
+            _rb.AddForce(new Vector3(0, 0, -1));
+        }
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            _rb.AddForce(new Vector3(-1, 0, 0));
+        }
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            _rb.AddForce(new Vector3(1, 0, 0));
+        }
+    }
+
++   private void OnCollisionEnter(Collision collision)
++   {
++       if(collision.gameObject.name == "Score(Clone)")
++       {
++           score++;
++           Debug.Log("Score: " + score);
++           Destroy(collision.gameObject);
++       }
++   }
+}
+```
+
+実行して、ボールが得点に触れると、得点が回収されることを確認してください。
+
+下の方のコンソールタブを見てください。得点を取ると、コンソールに現在のスコアが表示されます。また、得点を取ると、 Hierarchy にある `Score` が消えることがわかります。
+
+確認ができたら、再生ボタンを押して再生を停止してください。
+
+![checkdestroyscore](./checkdestroyscore.gif)
+
+![debuglog](./debuglog.png)
+
+## 7.2. スクリプトの説明
+
+`BallController` をダブルクリックして開いてください。
+
+変数 `score` は `int` 型の変数です。得点を保持します。
+
+`OnCollisionEnter` 関数は、ゲームオブジェクトが他のゲームオブジェクトに衝突したときに呼び出される関数です。Unity が自動的に呼び出してくれます.
+
+`OnCollisionEnter` 関数の引数で渡された `Collision` 型の変数 `collision` に衝突したゲームオブジェクトの情報が入っています。`collision.gameObject.name` で衝突したゲームオブジェクトの名前を取得できます。ここでは、`collision.gameObject.name` が `Score(Clone)` と文字列が同じなら得点を加算し、コンソールに現在のスコアを表示し、衝突したゲームオブジェクトを削除しています。C#では,文字列同士を比較する場合は `==` 演算子を使います(C言語ではできないよ！)。
+
+`Debug.Log` 関数は、コンソールにログを表示する関数です。C#では便利なことに、文字列型と数値型を足すと、数値が文字列に変換され,自動的に文字列連結になります。`Destroy` 関数は、引数で指定されたゲームオブジェクトを削除します。ここでは、衝突したゲームオブジェクト(`Score`)を削除しています。
