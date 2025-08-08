@@ -1106,3 +1106,27 @@ Hierarchy で `Sphere` を選択し、`Inspector` で `Add Component` をクリ�
 `AudioSource` は、Unity でオブジェクトから音を鳴らすためのコンポーネントです。`AudioClip` は、音声データを保持するためのクラスです。Unityでは,音源データはすべて `AudioClip` として扱われます.`Audio Source` コンポーネントの`Audio Resource` には, `AudioClip` を設定することで、その音声データを再生できます。`Play On Awake` は、ゲームオブジェクトが生成されたときに自動的に音を再生するかどうかを設定します。`Loop` は、音声データをループ再生するかどうかを設定します。
 
 `AudioSource.PlayOneShot()` 関数は、引数で指定された `AudioClip` を一度だけ再生します。ここでは、得点を取ったときに `ScoreSound` を再生しています。この関数は,スコアを取ったときなど,一瞬だけ音を鳴らしたいときに使います。
+
+# 14. ゲームをビルドする
+
+ここでは、ゲームをビルドして実行ファイルを作成します。
+
+## 14.1. シーンの設定
+
+`File` -> `Build Profiles` で `Scene List` を開いてください。`Scene List` で、 `TitleScene` が一番上に来るようにドラッグアンドドロップしてください。ビルド後のゲームは、一番上にあるシーンから始まります。
+
+![toptotitlescene](./toptotitlescene.gif)
+
+## 14.2. ビルド
+
+`File` -> `Build Profiles` でPlatformsから自身のOSを選択してください。
+
+* Windows
+
+![buildfolder](./buildfolder.gif)
+
+どのフォルダに保存するか聞かれるので、右クリックして `Build` というフォルダを作って、選択してください。
+
+ビルド後、`Build` フォルダに実行ファイルが作成されます。自分でつけたゲームのタイトル名の実行ファイルがビルドしてできたゲームです。
+
+![buildresult](./buildresult.png)
