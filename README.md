@@ -266,3 +266,174 @@ Unityでは,スクリプトを書いてコンポーネント(要素)を作りま
 `Update` 関数は、再生ボタンを押したら毎フレーム実行される関数です。 Unity が呼び出してくれます。ここでは、 `Input.GetKey` 関数を使って、引数で指定されたキーボードのキーが入力されたかをif文で判定しています.
 
 キーが入力されたら `Rigidbody` の `AddForce` 関数を使って、玉に力を加えています。 `Input.GetKey` 関数では、引数で指定されたキーボードのキーが押されている間、true を返します。そうでなければ、false を返します。 `AddForce` 関数は、引数で指定されたベクトルの力を加えます。`w` キーが押されたら、Z軸に対して`+1`の力、`s` キーが押されたら、Z軸に対して`-1`の力、`a` キーが押されたら、X軸に対して`-1`の力、`d` キーが押されたら、X軸に対して`+1`の力を加えます。 `new Vector3` で Unity のベクトル情報を生成し、`AddForce` 関数の引数に渡しています。
+
+# 6. 得点を生成させる
+
+ここでは、ステージ上に得点をランダムな場所に生成させます。
+
+## 6.1. 得点となるゲームオブジェクトのPrefabを作成する
+
+`Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択
+
+オブジェクト名は `Score` に変更してください。作成時に名前を変更し忘れた際は,ゲームオブジェクトを右クリックして `Rename` を選択するか,選択してF2キーを押して名前を変更できます。
+
+![create score](./createscore.gif)
+
+`Ctrl + S` でこまめに保存することを忘れないでください。
+
+`Score` を Project にドラッグアンドドロップしてください。 Prefab として保存されます。Project タブの `Assets` フォルダに `Score` という 水色の四角いアイコンのファイルが作成されます。
+
+![create score prefab](./createscoreprefab.gif)
+
+Prefab とは、ゲームオブジェクトの**設計図**のようなものです。ゲームオブジェクトそのものではありません(C#のクラスみたいですね！)。今回はこの `Score` の Prefab を元に、スコアのゲームオブジェクトを生成します。
+
+`Score` の Prefab が作成できたら、 Hierarchy にある `Score` を削除してください。削除は、ゲームオブジェクトを選択して右クリックして `Delete` を選択するか, Delete キーを押して削除できます。
+
+![delete cube](./deletecube.gif)
+
+## 6.2. ScoreManager を作成する
+
+得点のオブジェクトを生成するスクリプトを作成します。
+
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択してください.
+
+スクリプトの名前を `ScoreManager` にしてください。
+
+![create score manager](./createscoremanager.gif)
+
+`ScoreManager` をダブルクリックして開いてください。
+
+以下のようにスクリプトを書き換えてください。プログラムの説明は後で行います。
+
+```csharp title="ScoreManager.cs" showLineNumbers
+using UnityEngine;
+
+public class ScoreManager : MonoBehaviour
+{
++   [SerializeField] private GameObject scoreObject;
++   [SerializeField] private int scoreAmount = 10;
+
+    // Start is called before the first frame update
+    void Start()
+    {
++       for (int i = 0; i < scoreAmount; i++)
++       {
++           float x = Random.Range(-10.0f, 10.0f);
++           float z = Random.Range(-10.0f, 10.0f);
++
++           Instantiate(scoreObject, new Vector3(x, 0.5f, z), Quaternion.identity);
++       }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+```
+
+スコアを管理するゲームオブジェクトを作成します.
+
+Hierarchy で右クリック -> `Create Empty` を選択
+
+ゲームオブジェクト名を `ScoreManager` にしてください。
+
+![create score manager obj](./createscoremanagerobj.gif)
+
+EmptyObject は、コンポーネントが何もついていないゲームオブジェクトです(座標の概念はあります)。inspector を開くと、何も表示されていないことがわかります。
+
+![emptyobject](./emptyobject.png)
+
+このゲームオブジェクトに`ScoreManager`をアタッチします。`ScoreManager` スクリプトを Project から ScoreManager ゲームオブジェクトにドラッグアンドドロップしてください。
+
+![attach score manager script](./atachscoremanager.gif)
+
+Inspector に `ScoreManager` がコンポーネントとして追加されていることがわかります。
+
+次に, `ScoreManager` ゲームオブジェクトの Inspector にある `ScoreManager` コンポーネントの `Score Object` の欄に `Score` Prefab をドラッグアンドドロップしてください。
+
+![set score obj](./setscoreobj.gif)
+
+再生ボタン▶を押してみてください。ステージ上にランダムな位置に `Score` が生成されることがわかります。停止ボタン■を押して再び再生をすると,さっきと違う位置に `Score` が生成されます。
+
+![playcheckscore](./playcheckscore.png)
+
+確認ができたら、停止ボタン■を押して再生を停止してください。また,こまめに `Ctrl + S` で保存することを忘れないでください。
+
+少し Score が大きいので、 `Score` の `Scale` を (0.3, 0.3, 0.3) に変更してください。
+
+## 6.3. プログラムの説明
+
+`ScoreManager` をダブルクリックして開いてください。
+
+![exeprainscoremanager](./exeprainscoremanager.png)
+
+変数 `scoreObject` は `GameObject` 型の変数です。今回は `Score` の Prefab を代入することで、その Prefab を**参照**しています.
+
+変数 `scoreAmount` は `int` 型の変数です。`Score` の Prefab を元に、 Score オブジェクトを生成する回数を指定しています。
+
+この2つの変数は、`[SerializeField]` という**属性**というものをつけています。これを変数につけることで、Unity Editor の Inspector から変数を代入できるようにしています。こうすれば、必要なパラメーターを Inspector から設定できるので、スクリプトを変更する必要がなくなります。 `BallController` の `_rb` には `[SerializeField]` をつけていないので, Sphere の Inspector の `BallController` コンポーネントには `_rb` を見ることができないのがわかります.
+
+![ballcontrollernone](./ballcontrollernone.png)
+
+`Random.Range` 関数は、引数で指定された範囲のランダムな値を返します。ここでは、`-10` から `10` の範囲のランダムな少数値を `x` と `z` に代入しています。
+
+`Instantiate` 関数は、第1引数で指定されたゲームオブジェクトを元に、第2引数指定された位置に、第3引数で指定した角度でゲームオブジェクトを生成します。ここでは、`scoreObject` を `new Vector3(x, 0.5f, z)` の位置に生成しています。角度は `Quaternion.identity` で指定しています。`Quaternion.identity` は、回転がないことを表します(元のPrefabと同じ傾きって意味)。
+
+Prefab はゲームオブジェクトの設計図なので,Prefabで適応させた設定は、生成されたゲームオブジェクトにも適応されます。`Score` Prefab の `Scale` を `(0.3, 0.3, 0.3)` に変更して見ましょう.
+
+![setzerothree](./setzerothree.gif)
+
+これで再生すれば,生成された `Score` の大きさが小さくなっていることがわかります。
+
+![fixedscoresize](./fixedscoresize.png)
+
+## 6.4. カメラをボールに追従させる
+
+ここでは、カメラをボールに追従させます。
+
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `CameraController` という名前のスクリプトを作成して、以下のように書き換えてください。
+
+```csharp title="CameraController.cs" showLineNumbers
+using UnityEngine;
+
+public class CameraController : MonoBehaviour
+{
+    // Start is called before the first frame update
+
++   [SerializeField] private Transform playerObject;
++   [SerializeField] private Vector3 offset;
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
++       transform.position = playerObject.position + offset;
+    }
+}
+```
+
+`CameraController` をドラッグアンドドロップで `Main Camera` にアタッチしてください。
+
+そして、`Main Camera` の Inspector にある `CameraController` コンポーネントの `Player Object` に `Sphere` をドラッグアンドドロップしてください。そして `Main Camera` の Inspector にある `CameraController` コンポーネントの `Offset` を `(0, 5, -10)` に変更してください。また、 `Main Camera` の `Transform` コンポーネントの Position を `(0, 10, -10)`, Rotation を `(30, 0, 0)` に変更してください。
+
+![cameracontroller](./cameracontroller.gif)
+
+再生ボタン▶を押してみてください。`WASD`でボールを操作すると,カメラが追従してきます。
+
+![playcheckcamera](./playcheckcamera.gif)
+
+## 6.5. スクリプトの説明
+
+`CameraController` をダブルクリックして開いてください。
+
+変数 `playerObject` は `Transform` 型の変数です。`Sphere` の Transform コンポーネントを代入することで、`Sphere` の Transform を**参照**できます。
+
+変数 `offset` は `Vector3` 型の変数です。カメラの位置を調整するための変数です。`playerObject` の座標に `offset` を加えた座標にカメラを移動させます。
+
+`transform.position` は、そのスクリプトをアタッチしたゲームオブジェクトの座標を表します。`transform` というTransform型の変数の中に `position` というVector3型の変数が入っています(C言語の構造体みたいですね！). `CameraController` は `Main Camera` ゲームオブジェクトにアタッチしてるので、`playerObject` (`Sphere`) の座標(`playerObject.position`)に `offset` を加えた座標にカメラを移動させています。`Transform` コンポーネントは,`GetComponent` 関数を使わなくても**参照**することができます. `playerObject.position` と `offset` は `+` 演算子で加算できます。`Vector3` 型の変数同士は、`+` 演算子が,各要素の加算をするように定義されています。なので,`new Vector3(playerObject.position.x + offset.x, playerObject.position.y + offset.y, playerObject.position.z + offset.z)` のように書く必要はありません(便利ですね！)。
