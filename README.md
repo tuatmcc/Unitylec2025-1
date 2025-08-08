@@ -954,3 +954,49 @@ public class BallController : MonoBehaviour
 確認ができたら、停止ボタン■を押して再生を停止してください。
 
 これで、ゲームの一連の流れが完成しました。
+
+# 12. マテリアルで見た目
+
+ここでは、マテリアルを使ってゲームオブジェクトにテクスチャを貼ったりして見た目を変更します。
+
+## 12.1. スコアの見た目を変更する
+
+Project で右クリック -> `Create` -> `Material` を選択
+
+マテリアルの名前を `ScoreMaterial` に変更してください。
+
+![createscoremarerial](./createscoremarerial.gif)
+
+`ScoreMaterial` を選択し、`Inspector` で `Base Map` の色を好きな色に変更してください。(例では黄緑っぽい色にしてみました)
+
+![changescorecolor](./changescorecolor.png)
+
+`Score` プレバブに `ScoreMaterial` をドラッグアンドドロップしてください。そして再生ボタン▶を押してみてください。スコアゲームオブジェクトの色が変わっていることがわかります。
+
+![checkscorecolor](./checkscorecolor.gif)
+
+確認ができたら、停止ボタン■を押して再生を停止してください。
+
+## 12.2. ボールの見た目を変更する
+
+以下のテクスチャをボールに貼り付けてみようと思います。
+
+![balltexture](./BallTexture.png)
+
+[ここをクリックでダウンロード](./BallTexture.png)
+
+ダウンロードしたら、`Assets` にドラッグアンドドロップしてください。
+
+Assets で右クリック -> `Create` -> `Material` を選択
+
+マテリアルの名前を `BallMaterial` に変更してください。
+
+`BallMaterial` を選択し、`Inspector` で `Base Map` の `Texture` に `BallTexture` をドラッグアンドドロップしてください。そして、`BallMaterial` を Hierarchy の `Sphere` にドラッグアンドドロップしてください。
+
+![setballmaterial](./setballmaterial.gif)
+
+ボールの見た目が変わっていることがわかります。
+
+再生ボタンを押してみてください。
+
+![cheackchangedballmaterial](./cheackchangedballmaterial.gif)
