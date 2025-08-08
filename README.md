@@ -60,7 +60,7 @@ Unity のプロジェクトを作ります. 左の `Projects` をクリックし
 
 ## 2.2. Unity Editor のタブとレイアウト
 
-デフォルトのレイアウトでは, 以下のタブが見えています。
+デフォルトのレイアウトでは, 以下のタブが見えています.
 
 |タブの名前|説明|
 |---|---|
@@ -101,9 +101,9 @@ Unity のプロジェクトを作ります. 左の `Projects` をクリックし
 
 シーン名に `*` がついているのは, シーンが保存されていないことを示しています. `ctrl + S` でシーンを保存してください.
 
-Hierarchyで`Plane`を選択すると、Inspectorに`Plane`のプロパティが表示されます。
+Hierarchyで`Plane`を選択すると, Inspectorに`Plane`のプロパティが表示されます.
 
-`Plane`には`Trasform`, `Mesh Filter`, `Mesh Renderer`, `Mesh Collider`の要素(Component)がついています。それぞれの役針は以下の通りです。
+`Plane`には`Trasform`, `Mesh Filter`, `Mesh Renderer`, `Mesh Collider`の要素(Component)がついています. それぞれの役針は以下の通りです.
 
 * Transform
   * 座標や傾きといった3D空間の位置情報プロパティ
@@ -125,7 +125,7 @@ Hierarchyで右クリック -> 3D Object -> Sphere を選択
 
 ![Create Sphere](./createball.gif)
 
-このままでは地面にめり込んでいるので、`Sphere`の`Trasform`の`Position`の`Y`を`5`に変更します。
+このままでは地面にめり込んでいるので, `Sphere`の`Trasform`の`Position`の`Y`を`5`に変更します.
 
 ![ChangePos](./changepos.png)
 
@@ -133,23 +133,23 @@ Hierarchyで右クリック -> 3D Object -> Sphere を選択
 
 ![set Sphere Position](./setballposition.png)
 
-`Ctrl + S` で定期的に保存することを忘れないでください。
+`Ctrl + S` で定期的に保存することを忘れないでください.
 
 # 4. ボールを重力で落下させる
 
-ここでは、ボールを重力で落下させます。
+ここでは, ボールを重力で落下させます.
 
-エディターの上の方にある再生ボタン▶を押すと、ゲームが実行されます。押してみましょう．停止ボタン■を押すと、ゲームが停止します。
+エディターの上の方にある再生ボタン▶を押すと, ゲームが実行されます. 押してみましょう．停止ボタン■を押すと, ゲームが停止します.
 
 ![Play Button](./playnorb.gif)
 
 何も起こりません！
 
-先ほど作成した`Sphere`には,物理演算を行う要素(コンポーネント)がついていません。そのため,ボールが重力で落下することはありません。`Sphere`に物理演算を行う要素を追加しましょう。
+先ほど作成した`Sphere`には,物理演算を行う要素(コンポーネント)がついていません. そのため,ボールが重力で落下することはありません. `Sphere`に物理演算を行う要素を追加しましょう.
 
 ## 4.1. Rigidbody を追加する
 
-`Hierarchy`で`Sphere`を選択し、`Inspector`で下の方にある`Add Component` -> `Physics` -> `Rigidbody` をクリック
+`Hierarchy`で`Sphere`を選択し, `Inspector`で下の方にある`Add Component` -> `Physics` -> `Rigidbody` をクリック
 
 ![setrbody](./setrb.gif)
 
@@ -157,37 +157,37 @@ Hierarchyで右クリック -> 3D Object -> Sphere を選択
 
 ![addedrb](./addedrb.png)
 
-上の方にある再生ボタン▶を押してみてください。ボールが落下します。
+上の方にある再生ボタン▶を押してみてください. ボールが落下します.
 
 ![checkrb](./checkrb.gif)
 
-ボールが自由落下するのを確認できたら、必ず停止ボタン■を押して再生を停止してください。
+ボールが自由落下するのを確認できたら, 必ず停止ボタン■を押して再生を停止してください.
 
-また, こまめに`Ctrl + S` で保存することを忘れないでください。
+また, こまめに`Ctrl + S` で保存することを忘れないでください.
 
 # 5. ボールを操作する
 
-ここでは、ボールを操作するためのスクリプトを作成します。
+ここでは, ボールを操作するためのスクリプトを作成します.
 
 ## 5.1. スクリプトを作成する
 
-`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script` を選択してください. このとき、ファイル名を `BallController` にしてください。
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script` を選択してください. このとき, ファイル名を `BallController` にしてください.
 
 ![create ball script](./createballscript.gif)
 
-作成時に名前を `BallController` にし忘れた場合は `BallController` を右クリックして `Rename` を選べばファイル名を変更できます。
+作成時に名前を `BallController` にし忘れた場合は `BallController` を右クリックして `Rename` を選べばファイル名を変更できます.
 
 ![named ball controller](./namedballcontroller.png)
 
-`BallController`　をダブルクリックして開くと、Rider が起動します。(※このとき、visual studio が起動しても OK です. Visual Studio Code が開いた場合はなにか設定が間違っている可能性があります。)
+`BallController`　をダブルクリックして開くと, Rider が起動します. (※このとき, visual studio が起動しても OK です. Visual Studio Code が開いた場合はなにか設定が間違っている可能性があります. )
 
 ![open ball controller](./openballcontroller.png)
 
-`BallController.cs` が開かれていることを確認してください。`.cs` は C# の拡張子です。(C言語だと`.c`, C++だと`.cpp`, pythonだと`.py`)
+`BallController.cs` が開かれていることを確認してください. `.cs` は C# の拡張子です. (C言語だと`.c`, C++だと`.cpp`, pythonだと`.py`)
 
 ## 5.2. スクリプトを書き換える
 
-以下のようにスクリプトを書き換えてください。プログラムの説明は後で行います。
+以下のようにスクリプトを書き換えてください. プログラムの説明は後で行います.
 
 ```csharp title="BallController.cs" showLineNumbers
 using UnityEngine;
@@ -225,15 +225,15 @@ public class BallController : MonoBehaviour
 }
 ```
 
-3行目の `public class BallController : MonoBehaviour` の部分で、 `class` の後が `BallController` になっていることを確認してください。大文字小文字、全角半角の違いにも注意してください。
+3行目の `public class BallController : MonoBehaviour` の部分で,  `class` の後が `BallController` になっていることを確認してください. 大文字小文字, 全角半角の違いにも注意してください.
 
 ## 5.3. スクリプトを Sphere にアタッチする
 
-Project にある `BallController` を `Sphere` にドラッグアンドドロップしてください。
+Project にある `BallController` を `Sphere` にドラッグアンドドロップしてください.
 
 ![attach script](./attachscript.gif)
 
-`Sphere` の Inspector に `BallController` がコンポーネントとして追加されるのがわかります。これで、スクリプトをゲームオブジェクトにアタッチできました。
+`Sphere` の Inspector に `BallController` がコンポーネントとして追加されるのがわかります. これで, スクリプトをゲームオブジェクトにアタッチできました.
 
 ![attached script](./attachedscript.png)
 
@@ -241,69 +241,69 @@ Unityでは,スクリプトを書いてコンポーネント(要素)を作りま
 
 ## 5.4. ゲームを再生してみる
 
-再生ボタン▶を押してみてください。`W`, `A`, `S`, `D` キーを押すと、ボールが前後左右に動くことがわかります。(周りに壁とか無いから落ちるけど...)
+再生ボタン▶を押してみてください. `W`, `A`, `S`, `D` キーを押すと, ボールが前後左右に動くことがわかります. (周りに壁とか無いから落ちるけど...)
 
 ![playtest](./playtest.gif)
 
-確認ができたら、停止ボタン■を押して再生を停止してください。再生を停止すると、ゲームの状態がリセットされ,ボールが元の位置に戻ります。
+確認ができたら, 停止ボタン■を押して再生を停止してください. 再生を停止すると, ゲームの状態がリセットされ,ボールが元の位置に戻ります.
 
 # 5.5. プログラムの説明
 
-`BallController` をダブルクリックして開いてください。
+`BallController` をダブルクリックして開いてください.
 
 ![expreinballcontroller](./expreinballcontroller.png)
 
-1行目の `using UnityEngine;` は、Unity の機能を使うための宣言です。C言語の `#include` のようなものです。Unity の機能を使うためには、この呪文が必要です
+1行目の `using UnityEngine;` は, Unity の機能を使うための宣言です. C言語の `#include` のようなものです. Unity の機能を使うためには, この呪文が必要です
 
-3行目の `public class BallController : MonoBehaviour` は、`BallController` という**クラス**を定義しています。クラスはC#のオブジェクトというものの設計図です.コンポーネントはC#のオブジェクトとして存在してます.
+3行目の `public class BallController : MonoBehaviour` は, `BallController` という**クラス**を定義しています. クラスはC#のオブジェクトというものの設計図です.コンポーネントはC#のオブジェクトとして存在してます.
 
 ![exeprainclass](./exeprainclass.png)
 
-変数 `rb` は `Rigidbody` 型の変数です。任意のゲームオブジェクトに付いている `Rigidbody` コンポーネントを取得して代入することで、その `Rigidbody` を**参照**できます。
+変数 `rb` は `Rigidbody` 型の変数です. 任意のゲームオブジェクトに付いている `Rigidbody` コンポーネントを取得して代入することで, その `Rigidbody` を**参照**できます.
 
-`Start` 関数は、再生ボタンを押したら最初に一度だけ実行される関数です。 Unity が呼び出してくれます。ここでは、Start 関数の中で、そのスクリプトがアタッチしている `Rigidbody` コンポーネントを `GetComponent` 関数で取得しています。`GetComponent` 関数は、アタッチしているゲームオブジェクトの指定したコンポーネントを取得する関数です。ここでは、`Rigidbody` コンポーネントを指定しています。
+`Start` 関数は, 再生ボタンを押したら最初に一度だけ実行される関数です.  Unity が呼び出してくれます. ここでは, Start 関数の中で, そのスクリプトがアタッチしている `Rigidbody` コンポーネントを `GetComponent` 関数で取得しています. `GetComponent` 関数は, アタッチしているゲームオブジェクトの指定したコンポーネントを取得する関数です. ここでは, `Rigidbody` コンポーネントを指定しています.
 
-`Update` 関数は、再生ボタンを押したら毎フレーム実行される関数です。 Unity が呼び出してくれます。ここでは、 `Input.GetKey` 関数を使って、引数で指定されたキーボードのキーが入力されたかをif文で判定しています.
+`Update` 関数は, 再生ボタンを押したら毎フレーム実行される関数です.  Unity が呼び出してくれます. ここでは,  `Input.GetKey` 関数を使って, 引数で指定されたキーボードのキーが入力されたかをif文で判定しています.
 
-キーが入力されたら `Rigidbody` の `AddForce` 関数を使って、玉に力を加えています。 `Input.GetKey` 関数では、引数で指定されたキーボードのキーが押されている間、true を返します。そうでなければ、false を返します。 `AddForce` 関数は、引数で指定されたベクトルの力を加えます。`w` キーが押されたら、Z軸に対して`+1`の力、`s` キーが押されたら、Z軸に対して`-1`の力、`a` キーが押されたら、X軸に対して`-1`の力、`d` キーが押されたら、X軸に対して`+1`の力を加えます。 `new Vector3` で Unity のベクトル情報を生成し、`AddForce` 関数の引数に渡しています。
+キーが入力されたら `Rigidbody` の `AddForce` 関数を使って, 玉に力を加えています.  `Input.GetKey` 関数では, 引数で指定されたキーボードのキーが押されている間, true を返します. そうでなければ, false を返します.  `AddForce` 関数は, 引数で指定されたベクトルの力を加えます. `w` キーが押されたら, Z軸に対して`+1`の力, `s` キーが押されたら, Z軸に対して`-1`の力, `a` キーが押されたら, X軸に対して`-1`の力, `d` キーが押されたら, X軸に対して`+1`の力を加えます.  `new Vector3` で Unity のベクトル情報を生成し, `AddForce` 関数の引数に渡しています.
 
 # 6. 得点を生成させる
 
-ここでは、ステージ上に得点をランダムな場所に生成させます。
+ここでは, ステージ上に得点をランダムな場所に生成させます.
 
 ## 6.1. 得点となるゲームオブジェクトのPrefabを作成する
 
 `Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択
 
-オブジェクト名は `Score` に変更してください。作成時に名前を変更し忘れた際は,ゲームオブジェクトを右クリックして `Rename` を選択するか,選択してF2キーを押して名前を変更できます。
+オブジェクト名は `Score` に変更してください. 作成時に名前を変更し忘れた際は,ゲームオブジェクトを右クリックして `Rename` を選択するか,選択してF2キーを押して名前を変更できます.
 
 ![create score](./createscore.gif)
 
-`Ctrl + S` でこまめに保存することを忘れないでください。
+`Ctrl + S` でこまめに保存することを忘れないでください.
 
-`Score` を Project にドラッグアンドドロップしてください。 Prefab として保存されます。Project タブの `Assets` フォルダに `Score` という 水色の四角いアイコンのファイルが作成されます。
+`Score` を Project にドラッグアンドドロップしてください.  Prefab として保存されます. Project タブの `Assets` フォルダに `Score` という 水色の四角いアイコンのファイルが作成されます.
 
 ![create score prefab](./createscoreprefab.gif)
 
-Prefab とは、ゲームオブジェクトの**設計図**のようなものです。ゲームオブジェクトそのものではありません(C#のクラスみたいですね！)。今回はこの `Score` の Prefab を元に、スコアのゲームオブジェクトを生成します。
+Prefab とは, ゲームオブジェクトの**設計図**のようなものです. ゲームオブジェクトそのものではありません(C#のクラスみたいですね！). 今回はこの `Score` の Prefab を元に, スコアのゲームオブジェクトを生成します.
 
-`Score` の Prefab が作成できたら、 Hierarchy にある `Score` を削除してください。削除は、ゲームオブジェクトを選択して右クリックして `Delete` を選択するか, Delete キーを押して削除できます。
+`Score` の Prefab が作成できたら,  Hierarchy にある `Score` を削除してください. 削除は, ゲームオブジェクトを選択して右クリックして `Delete` を選択するか, Delete キーを押して削除できます.
 
 ![delete cube](./deletecube.gif)
 
 ## 6.2. ScoreManager を作成する
 
-得点のオブジェクトを生成するスクリプトを作成します。
+得点のオブジェクトを生成するスクリプトを作成します.
 
 `Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択してください.
 
-スクリプトの名前を `ScoreManager` にしてください。
+スクリプトの名前を `ScoreManager` にしてください.
 
 ![create score manager](./createscoremanager.gif)
 
-`ScoreManager` をダブルクリックして開いてください。
+`ScoreManager` をダブルクリックして開いてください.
 
-以下のようにスクリプトを書き換えてください。プログラムの説明は後で行います。
+以下のようにスクリプトを書き換えてください. プログラムの説明は後で行います.
 
 ```csharp title="ScoreManager.cs" showLineNumbers
 using UnityEngine;
@@ -337,63 +337,63 @@ public class ScoreManager : MonoBehaviour
 
 Hierarchy で右クリック -> `Create Empty` を選択
 
-ゲームオブジェクト名を `ScoreManager` にしてください。
+ゲームオブジェクト名を `ScoreManager` にしてください.
 
 ![create score manager obj](./createscoremanagerobj.gif)
 
-EmptyObject は、コンポーネントが何もついていないゲームオブジェクトです(座標の概念はあります)。inspector を開くと、何も表示されていないことがわかります。
+EmptyObject は, コンポーネントが何もついていないゲームオブジェクトです(座標の概念はあります). inspector を開くと, 何も表示されていないことがわかります.
 
 ![emptyobject](./emptyobject.png)
 
-このゲームオブジェクトに`ScoreManager`をアタッチします。`ScoreManager` スクリプトを Project から ScoreManager ゲームオブジェクトにドラッグアンドドロップしてください。
+このゲームオブジェクトに`ScoreManager`をアタッチします. `ScoreManager` スクリプトを Project から ScoreManager ゲームオブジェクトにドラッグアンドドロップしてください.
 
 ![attach score manager script](./atachscoremanager.gif)
 
-Inspector に `ScoreManager` がコンポーネントとして追加されていることがわかります。
+Inspector に `ScoreManager` がコンポーネントとして追加されていることがわかります.
 
-次に, `ScoreManager` ゲームオブジェクトの Inspector にある `ScoreManager` コンポーネントの `Score Object` の欄に `Score` Prefab をドラッグアンドドロップしてください。
+次に, `ScoreManager` ゲームオブジェクトの Inspector にある `ScoreManager` コンポーネントの `Score Object` の欄に `Score` Prefab をドラッグアンドドロップしてください.
 
 ![set score obj](./setscoreobj.gif)
 
-再生ボタン▶を押してみてください。ステージ上にランダムな位置に `Score` が生成されることがわかります。停止ボタン■を押して再び再生をすると,さっきと違う位置に `Score` が生成されます。
+再生ボタン▶を押してみてください. ステージ上にランダムな位置に `Score` が生成されることがわかります. 停止ボタン■を押して再び再生をすると,さっきと違う位置に `Score` が生成されます.
 
 ![playcheckscore](./playcheckscore.png)
 
-確認ができたら、停止ボタン■を押して再生を停止してください。また,こまめに `Ctrl + S` で保存することを忘れないでください。
+確認ができたら, 停止ボタン■を押して再生を停止してください. また,こまめに `Ctrl + S` で保存することを忘れないでください.
 
-少し Score が大きいので、 `Score` の `Scale` を (0.3, 0.3, 0.3) に変更してください。
+少し Score が大きいので,  `Score` の `Scale` を (0.3, 0.3, 0.3) に変更してください.
 
 ## 6.3. プログラムの説明
 
-`ScoreManager` をダブルクリックして開いてください。
+`ScoreManager` をダブルクリックして開いてください.
 
 ![exeprainscoremanager](./exeprainscoremanager.png)
 
-変数 `scoreObject` は `GameObject` 型の変数です。今回は `Score` の Prefab を代入することで、その Prefab を**参照**しています.
+変数 `scoreObject` は `GameObject` 型の変数です. 今回は `Score` の Prefab を代入することで, その Prefab を**参照**しています.
 
-変数 `scoreAmount` は `int` 型の変数です。`Score` の Prefab を元に、 Score オブジェクトを生成する回数を指定しています。
+変数 `scoreAmount` は `int` 型の変数です. `Score` の Prefab を元に,  Score オブジェクトを生成する回数を指定しています.
 
-この2つの変数は、`[SerializeField]` という**属性**というものをつけています。これを変数につけることで、Unity Editor の Inspector から変数を代入できるようにしています。こうすれば、必要なパラメーターを Inspector から設定できるので、スクリプトを変更する必要がなくなります。 `BallController` の `_rb` には `[SerializeField]` をつけていないので, Sphere の Inspector の `BallController` コンポーネントには `_rb` を見ることができないのがわかります.
+この2つの変数は, `[SerializeField]` という**属性**というものをつけています. これを変数につけることで, Unity Editor の Inspector から変数を代入できるようにしています. こうすれば, 必要なパラメーターを Inspector から設定できるので, スクリプトを変更する必要がなくなります.  `BallController` の `_rb` には `[SerializeField]` をつけていないので, Sphere の Inspector の `BallController` コンポーネントには `_rb` を見ることができないのがわかります.
 
 ![ballcontrollernone](./ballcontrollernone.png)
 
-`Random.Range` 関数は、引数で指定された範囲のランダムな値を返します。ここでは、`-10` から `10` の範囲のランダムな少数値を `x` と `z` に代入しています。
+`Random.Range` 関数は, 引数で指定された範囲のランダムな値を返します. ここでは, `-10` から `10` の範囲のランダムな少数値を `x` と `z` に代入しています.
 
-`Instantiate` 関数は、第1引数で指定されたゲームオブジェクトを元に、第2引数指定された位置に、第3引数で指定した角度でゲームオブジェクトを生成します。ここでは、`scoreObject` を `new Vector3(x, 0.5f, z)` の位置に生成しています。角度は `Quaternion.identity` で指定しています。`Quaternion.identity` は、回転がないことを表します(元のPrefabと同じ傾きって意味)。
+`Instantiate` 関数は, 第1引数で指定されたゲームオブジェクトを元に, 第2引数指定された位置に, 第3引数で指定した角度でゲームオブジェクトを生成します. ここでは, `scoreObject` を `new Vector3(x, 0.5f, z)` の位置に生成しています. 角度は `Quaternion.identity` で指定しています. `Quaternion.identity` は, 回転がないことを表します(元のPrefabと同じ傾きって意味).
 
-Prefab はゲームオブジェクトの設計図なので,Prefabで適応させた設定は、生成されたゲームオブジェクトにも適応されます。`Score` Prefab の `Scale` を `(0.3, 0.3, 0.3)` に変更して見ましょう.
+Prefab はゲームオブジェクトの設計図なので,Prefabで適応させた設定は, 生成されたゲームオブジェクトにも適応されます. `Score` Prefab の `Scale` を `(0.3, 0.3, 0.3)` に変更して見ましょう.
 
 ![setzerothree](./setzerothree.gif)
 
-これで再生すれば,生成された `Score` の大きさが小さくなっていることがわかります。
+これで再生すれば,生成された `Score` の大きさが小さくなっていることがわかります.
 
 ![fixedscoresize](./fixedscoresize.png)
 
 ## 6.4. カメラをボールに追従させる
 
-ここでは、カメラをボールに追従させます。
+ここでは, カメラをボールに追従させます.
 
-`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `CameraController` という名前のスクリプトを作成して、以下のように書き換えてください。
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `CameraController` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
 ```csharp title="CameraController.cs" showLineNumbers
 using UnityEngine;
@@ -418,33 +418,33 @@ public class CameraController : MonoBehaviour
 }
 ```
 
-`CameraController` をドラッグアンドドロップで `Main Camera` にアタッチしてください。
+`CameraController` をドラッグアンドドロップで `Main Camera` にアタッチしてください.
 
-そして、`Main Camera` の Inspector にある `CameraController` コンポーネントの `Player Object` に `Sphere` をドラッグアンドドロップしてください。そして `Main Camera` の Inspector にある `CameraController` コンポーネントの `Offset` を `(0, 5, -10)` に変更してください。また、 `Main Camera` の `Transform` コンポーネントの Position を `(0, 10, -10)`, Rotation を `(30, 0, 0)` に変更してください。
+そして, `Main Camera` の Inspector にある `CameraController` コンポーネントの `Player Object` に `Sphere` をドラッグアンドドロップしてください. そして `Main Camera` の Inspector にある `CameraController` コンポーネントの `Offset` を `(0, 5, -10)` に変更してください. また,  `Main Camera` の `Transform` コンポーネントの Position を `(0, 10, -10)`, Rotation を `(30, 0, 0)` に変更してください.
 
 ![cameracontroller](./cameracontroller.gif)
 
-再生ボタン▶を押してみてください。`WASD`でボールを操作すると,カメラが追従してきます。
+再生ボタン▶を押してみてください. `WASD`でボールを操作すると,カメラが追従してきます.
 
 ![playcheckcamera](./playcheckcamera.gif)
 
 ## 6.5. スクリプトの説明
 
-`CameraController` をダブルクリックして開いてください。
+`CameraController` をダブルクリックして開いてください.
 
-変数 `playerObject` は `Transform` 型の変数です。`Sphere` の Transform コンポーネントを代入することで、`Sphere` の Transform を**参照**できます。
+変数 `playerObject` は `Transform` 型の変数です. `Sphere` の Transform コンポーネントを代入することで, `Sphere` の Transform を**参照**できます.
 
-変数 `offset` は `Vector3` 型の変数です。カメラの位置を調整するための変数です。`playerObject` の座標に `offset` を加えた座標にカメラを移動させます。
+変数 `offset` は `Vector3` 型の変数です. カメラの位置を調整するための変数です. `playerObject` の座標に `offset` を加えた座標にカメラを移動させます.
 
-`transform.position` は、そのスクリプトをアタッチしたゲームオブジェクトの座標を表します。`transform` というTransform型の変数の中に `position` というVector3型の変数が入っています(C言語の構造体みたいですね！). `CameraController` は `Main Camera` ゲームオブジェクトにアタッチしてるので、`playerObject` (`Sphere`) の座標(`playerObject.position`)に `offset` を加えた座標にカメラを移動させています。`Transform` コンポーネントは,`GetComponent` 関数を使わなくても**参照**することができます. `playerObject.position` と `offset` は `+` 演算子で加算できます。`Vector3` 型の変数同士は、`+` 演算子が,各要素の加算をするように定義されています。なので,`new Vector3(playerObject.position.x + offset.x, playerObject.position.y + offset.y, playerObject.position.z + offset.z)` のように書く必要はありません(便利ですね！)。
+`transform.position` は, そのスクリプトをアタッチしたゲームオブジェクトの座標を表します. `transform` というTransform型の変数の中に `position` というVector3型の変数が入っています(C言語の構造体みたいですね！). `CameraController` は `Main Camera` ゲームオブジェクトにアタッチしてるので, `playerObject` (`Sphere`) の座標(`playerObject.position`)に `offset` を加えた座標にカメラを移動させています. `Transform` コンポーネントは,`GetComponent` 関数を使わなくても**参照**することができます. `playerObject.position` と `offset` は `+` 演算子で加算できます. `Vector3` 型の変数同士は, `+` 演算子が,各要素の加算をするように定義されています. なので,`new Vector3(playerObject.position.x + offset.x, playerObject.position.y + offset.y, playerObject.position.z + offset.z)` のように書く必要はありません(便利ですね！).
 
 # 7. 得点を回収する
 
-ここでは、ボールが得点に触れたら得点を回収する処理を追加します。
+ここでは, ボールが得点に触れたら得点を回収する処理を追加します.
 
 ## 7.1. `BallController` が得点を回収するできるようにする
 
-`BallController` を以下のように書き換えてください。
+`BallController` を以下のように書き換えてください.
 
 ```csharp title="BallController.cs" showLineNumbers
 using UnityEngine;
@@ -496,11 +496,11 @@ public class BallController : MonoBehaviour
 }
 ```
 
-実行して、ボールが得点に触れると、得点が回収されることを確認してください。
+実行して, ボールが得点に触れると, 得点が回収されることを確認してください.
 
-下の方のコンソールタブを見てください。得点を取ると、コンソールに現在のスコアが表示されます。また、得点を取ると、 Hierarchy にある `Score` が消えることがわかります。
+下の方のコンソールタブを見てください. 得点を取ると, コンソールに現在のスコアが表示されます. また, 得点を取ると,  Hierarchy にある `Score` が消えることがわかります.
 
-確認ができたら、再生ボタンを押して再生を停止してください。
+確認ができたら, 再生ボタンを押して再生を停止してください.
 
 ![checkdestroyscore](./checkdestroyscore.gif)
 
@@ -508,29 +508,29 @@ public class BallController : MonoBehaviour
 
 ## 7.2. スクリプトの説明
 
-`BallController` をダブルクリックして開いてください。
+`BallController` をダブルクリックして開いてください.
 
-変数 `score` は `int` 型の変数です。得点を保持します。
+変数 `score` は `int` 型の変数です. 得点を保持します.
 
-`OnCollisionEnter` 関数は、ゲームオブジェクトが他のゲームオブジェクトに衝突(Collision)したときに呼び出される関数です。Unity が自動的に呼び出してくれます.
+`OnCollisionEnter` 関数は, ゲームオブジェクトが他のゲームオブジェクトに衝突(Collision)したときに呼び出される関数です. Unity が自動的に呼び出してくれます.
 
-`OnCollisionEnter` 関数の引数で渡された `Collision` 型の変数 `collision` に衝突したゲームオブジェクトの情報が入っています。`collision.gameObject.name` で衝突したゲームオブジェクトの名前を取得できます。ここでは、`collision.gameObject.name` が `Score(Clone)` と文字列が同じなら得点を加算し、コンソールに現在のスコアを表示し、衝突したゲームオブジェクトを削除しています。C#では,文字列同士を比較する場合は `==` 演算子を使います(C言語ではできないよ！)。
+`OnCollisionEnter` 関数の引数で渡された `Collision` 型の変数 `collision` に衝突したゲームオブジェクトの情報が入っています. `collision.gameObject.name` で衝突したゲームオブジェクトの名前を取得できます. ここでは, `collision.gameObject.name` が `Score(Clone)` と文字列が同じなら得点を加算し, コンソールに現在のスコアを表示し, 衝突したゲームオブジェクトを削除しています. C#では,文字列同士を比較する場合は `==` 演算子を使います(C言語ではできないよ！).
 
-`Debug.Log` 関数は、コンソールにログを表示する関数です。C#では便利なことに、文字列型と数値型を足すと、数値が文字列に変換され,自動的に文字列連結になります。`Destroy` 関数は、引数で指定されたゲームオブジェクトを削除します。ここでは、衝突したゲームオブジェクト(`Score`)を削除しています。
+`Debug.Log` 関数は, コンソールにログを表示する関数です. C#では便利なことに, 文字列型と数値型を足すと, 数値が文字列に変換され,自動的に文字列連結になります. `Destroy` 関数は, 引数で指定されたゲームオブジェクトを削除します. ここでは, 衝突したゲームオブジェクト(`Score`)を削除しています.
 
 # 8. ステージの調整
 
-ここでは、ステージを調整します。
+ここでは, ステージを調整します.
 
-`Plane` の `Scale` を (5, 1, 5) に変更してください。
+`Plane` の `Scale` を (5, 1, 5) に変更してください.
 
 ![planescale](./planescale.png)
 
-ステージの壁も作りましょう。`Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択。名前は `Wall` に変更してください。そして 4 方向分作るので、`Wall` を選択したまま `Ctrl + D` で複製してください。以下の画像のようになります。
+ステージの壁も作りましょう. `Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択. 名前は `Wall` に変更してください. そして 4 方向分作るので, `Wall` を選択したまま `Ctrl + D` で複製してください. 以下の画像のようになります.
 
 ![wall4](./wall4.png)
 
-4 つの Wall の Position と Scale をそれぞれ以下のように変更してください。(写真は1つ目)
+4 つの Wall の Position と Scale をそれぞれ以下のように変更してください. (写真は1つ目)
 
 * Position (0, 2, 20), Scale (40, 4, 1)
 * Position (0, 2, -20), Scale (40, 4, 1)
@@ -539,11 +539,11 @@ public class BallController : MonoBehaviour
 
 ![changewallpos](./changewallpos.png)
 
-また、今のままでは、スコアにふれると一瞬ボールの動きが止まってしまいます。これは物理演算をするための当たり判定があるためです。このゲームでは,スコアの当たり判定は物理演算の当たり判定ではなく,スコアに触れたかどうかを判定するだけで十分です。そこで、Project にある `Score` プレバブの `Box Collider` の `Is Trigger` にチェックを入れてください。
+また, 今のままでは, スコアにふれると一瞬ボールの動きが止まってしまいます. これは物理演算をするための当たり判定があるためです. このゲームでは,スコアの当たり判定は物理演算の当たり判定ではなく,スコアに触れたかどうかを判定するだけで十分です. そこで, Project にある `Score` プレバブの `Box Collider` の `Is Trigger` にチェックを入れてください.
 
 ![changetrigger](./changetrigger.png)
 
-そして、`BallController` の `OnCollisionEnter` 関数を `OnTriggerEnter` 関数に変更してください。
+そして, `BallController` の `OnCollisionEnter` 関数を `OnTriggerEnter` 関数に変更してください.
 
 ```csharp title="BallController.cs" showLineNumbers
 using UnityEngine;
@@ -596,25 +596,25 @@ public class BallController : MonoBehaviour
 }
 ```
 
-再生ボタンを押してみてください。スコアにふれてもボールの動きが止まらなくなりました。
+再生ボタンを押してみてください. スコアにふれてもボールの動きが止まらなくなりました.
 
 ![playcheckdestryscore](./playcheckdestryscore.gif)
 
 ## 8.1. スクリプトの説明
 
-ただの当たり判定は,物理演算に影響を与えます.しかし,今回のように触れたら回収するアイテムといったものや,特定のエリアへの侵入検知などは,物理演算に影響を与えない当たり判定が必要です.そこで,`Collider` コンポーネントの `Is Trigger` を有効にします。これにより、当たり判定はあるけど物理演算には影響を与えない状態になります。`Is Trigger` を有効にした `Collider` コンポーネントは、`OnTriggerEnter` 関数を使って当たり判定を検知します。
+ただの当たり判定は,物理演算に影響を与えます.しかし,今回のように触れたら回収するアイテムといったものや,特定のエリアへの侵入検知などは,物理演算に影響を与えない当たり判定が必要です.そこで,`Collider` コンポーネントの `Is Trigger` を有効にします. これにより, 当たり判定はあるけど物理演算には影響を与えない状態になります. `Is Trigger` を有効にした `Collider` コンポーネントは, `OnTriggerEnter` 関数を使って当たり判定を検知します.
 
 # 9. スコアをテキストで表示する
 
-ここでは、スコアを表示する UI を作成します。
+ここでは, スコアを表示する UI を作成します.
 
 ## 9.1. 画面比の設定
 
-まず、画面比を設定します。`Game` タブの上にある `Free Aspect` を `Full HD (1920x1080)` に変更してください。
+まず, 画面比を設定します. `Game` タブの上にある `Free Aspect` を `Full HD (1920x1080)` に変更してください.
 
 ![setgameaspect](./setaspect.gif)
 
-これでゲーム画面の比率が 16:9 でFull HDの解像度になります。
+これでゲーム画面の比率が 16:9 でFull HDの解像度になります.
 
 ## 9.2. テキストの追加
 
@@ -622,29 +622,29 @@ public class BallController : MonoBehaviour
 
 ![create text](./createtext.gif)
 
-TMP Importer が表示されるので、`Import TMP Essentials` をクリックしてください。
+TMP Importer が表示されるので, `Import TMP Essentials` をクリックしてください.
 
 ![tmpimporter](./tmpimporter.png)
 
-Canvas の子要素として `Text` が追加されました。 Game タブの真ん中の方に `New Text` というテキストが表示しているのがわかります。
+Canvas の子要素として `Text` が追加されました.  Game タブの真ん中の方に `New Text` というテキストが表示しているのがわかります.
 
 ![createdtext](./createdtext.png)
 
-Canvas とは、 Unity で UI を使うときに必要なゲームオブジェクトです。UI を表示するためのゲームオブジェクトを Canvas の子要素として追加することで、画面に UI を表示できます。UI は、ゲーム画面の上に重ねて表示されます。
+Canvas とは,  Unity で UI を使うときに必要なゲームオブジェクトです. UI を表示するためのゲームオブジェクトを Canvas の子要素として追加することで, 画面に UI を表示できます. UI は, ゲーム画面の上に重ねて表示されます.
 
 ## 9.3. テキストの調整
 
-`Text` の (PosX, PosY, PosZ) を (-660, 440, 0)、(Width, Height) を (500, 100) に変更してください。また, `Text` を `Score: 0`、Font Size を 80 に変更してください。 `Vertex Color` では好きな色に設定してください。
+`Text` の (PosX, PosY, PosZ) を (-660, 440, 0), (Width, Height) を (500, 100) に変更してください. また, `Text` を `Score: 0`, Font Size を 80 に変更してください.  `Vertex Color` では好きな色に設定してください.
 
 ![setscoretext](./setscoretext.gif)
 
-これで、左上の方にスコアが表示されるようになりました。
+これで, 左上の方にスコアが表示されるようになりました.
 
 ![setuped](./setuped.png)
 
 ## 9.3. スコアを表示するスクリプトを作成する
 
-`BallController` にスコアを表示するスクリプトを追加します。 `BallController` をダブルクリックして開いてください。
+`BallController` にスコアを表示するスクリプトを追加します.  `BallController` をダブルクリックして開いてください.
 
 ```csharp title="BallController.cs" showLineNumbers
 using UnityEngine;
@@ -699,45 +699,45 @@ public class BallController : MonoBehaviour
 }
 ```
 
-Hierarchy にある `Sphere` を選択し、`BallController` の Inspector にある `Score Text` に先ほど作成した `Text` をドラッグアンドドロップしてください。
+Hierarchy にある `Sphere` を選択し, `BallController` の Inspector にある `Score Text` に先ほど作成した `Text` をドラッグアンドドロップしてください.
 
 ![settext](./settext.gif)
 
-再生ボタン▶を押してみてください。スコアが表示されることを確認してください。取るたびにスコアが増えていくことがわかります。
+再生ボタン▶を押してみてください. スコアが表示されることを確認してください. 取るたびにスコアが増えていくことがわかります.
 
 ![getscorecheck](./getscorecheck.gif)
 
-確認ができたら、停止ボタン■を押して再生を停止してください。
+確認ができたら, 停止ボタン■を押して再生を停止してください.
 
-また,こまめに `Ctrl + S` で保存することを忘れないでください。
+また,こまめに `Ctrl + S` で保存することを忘れないでください.
 
 ## 9.4. スクリプトの説明
 
-`BallController` をダブルクリックして開いてください。
+`BallController` をダブルクリックして開いてください.
 
-`using TMPro;` unity でテキストを扱うTextMeshProを使うためのおまじないです。
+`using TMPro;` unity でテキストを扱うTextMeshProを使うためのおまじないです.
 
-変数 `scoreText` は `TextMeshProUGUI` 型の変数です。`TextMeshPro` コンポーネントを代入することで、その `TextMeshPro` を**参照**できます。Canvas の子要素として追加した `Text` は、`TextMeshProUGUI` コンポーネントを持っています。`TextMeshProUGUI` 型の変数に `TextMeshPro` コンポーネントを持ったゲームオブジェクトを代入することで、その `TextMeshPro` を**参照**できます。
+変数 `scoreText` は `TextMeshProUGUI` 型の変数です. `TextMeshPro` コンポーネントを代入することで, その `TextMeshPro` を**参照**できます. Canvas の子要素として追加した `Text` は, `TextMeshProUGUI` コンポーネントを持っています. `TextMeshProUGUI` 型の変数に `TextMeshPro` コンポーネントを持ったゲームオブジェクトを代入することで, その `TextMeshPro` を**参照**できます.
 
-`scoreText.text` は、`TextMeshPro` コンポーネントの `text` プロパティを表し,この変数に文字列を代入すると、その文字列にテキストが更新されます。ここでは,`Score: [現在のスコア]` を代入しています。
+`scoreText.text` は, `TextMeshPro` コンポーネントの `text` プロパティを表し,この変数に文字列を代入すると, その文字列にテキストが更新されます. ここでは,`Score: [現在のスコア]` を代入しています.
 
-`scoreText.text` に `Score: + score` を代入することで、スコアが更新され、スコアが表示されます。
+`scoreText.text` に `Score: + score` を代入することで, スコアが更新され, スコアが表示されます.
 
 # 10. ゲームタイトルシーンを作成する
 
-ここでは、ゲームのタイトルシーンを作成します。
+ここでは, ゲームのタイトルシーンを作成します.
 
-Scene とは、 Unity でゲームを作るときに必要なゲームオブジェクトや設定を保存するためのファイルです。 Scene は、ゲームのステージやメニュー画面など、ゲームの場面を表します。今まで作成したステージは、`MainScene` という名前の Scene に保存されています。 Project タブの `Assets/Scences` の中に `MainScene` という名前の Scene があるのがわかります。これに加え,ゲームのタイトルシーンを作成します。
+Scene とは,  Unity でゲームを作るときに必要なゲームオブジェクトや設定を保存するためのファイルです.  Scene は, ゲームのステージやメニュー画面など, ゲームの場面を表します. 今まで作成したステージは, `MainScene` という名前の Scene に保存されています.  Project タブの `Assets/Scences` の中に `MainScene` という名前の Scene があるのがわかります. これに加え,ゲームのタイトルシーンを作成します.
 
 ## 10.1. ゲームタイトルシーンを作成する
 
-Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択してください.名前は `TitleScene` にしてください。
+Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択してください.名前は `TitleScene` にしてください.
 
 ![createtitlescene](./createtitlescene.gif)
 
-`TitleScene` 作成したらダブルクリックして開いてください。
+`TitleScene` 作成したらダブルクリックして開いてください.
 
-Unity では,シーンを作成したら `Build Profiles` に追加する必要があります。左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください。これで `TitleScene` が Build Profiles に追加されます。`MainScene` ははじめから追加されています。
+Unity では,シーンを作成したら `Build Profiles` に追加する必要があります. 左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください. これで `TitleScene` が Build Profiles に追加されます. `MainScene` ははじめから追加されています.
 
 ![addscenelist](addscenelist.gif)
 
@@ -745,7 +745,7 @@ Unity では,シーンを作成したら `Build Profiles` に追加する必要�
 
 `Hierarchy`で右クリック -> `UI` -> `Text - TextMeshPro` を選択
 
-オブジェクト名は `Title` に変更してください。そして、`Title` の `(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください。また, `Title` の Text を `RollingBall` 、`Font Size` を 100 に変更してください。テキストの色は好きな色で構いませんが,見やすい色にしてください。`Alignment` は文字の中央揃えにしたり,左揃えにしたりできます. ここでは上下左右ともに中央揃えにします。
+オブジェクト名は `Title` に変更してください. そして, `Title` の `(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください. また, `Title` の Text を `RollingBall` , `Font Size` を 100 に変更してください. テキストの色は好きな色で構いませんが,見やすい色にしてください. `Alignment` は文字の中央揃えにしたり,左揃えにしたりできます. ここでは上下左右ともに中央揃えにします.
 
 ![settitletext](./settitletext.gif)
 
@@ -753,13 +753,13 @@ Unity では,シーンを作成したら `Build Profiles` に追加する必要�
 
 `Hierarchy`で右クリック -> `UI` -> `Button - TextMeshPro` を選択
 
-オブジェクト名は `StartButton` に変更してください。そして、`StartButton` の `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください。ヒエラルキーの `StartButton` ゲームオブジェクトの▶をクリックすると▼になり, `StartButton` ゲームオブジェクトの子オブジェクトであるボタンのテキストのオブジェクトが表示されます。この子オブジェクトの `Text` を `Click Start` に変更して, `Font Size` を 80 に変更してください。
+オブジェクト名は `StartButton` に変更してください. そして, `StartButton` の `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください. ヒエラルキーの `StartButton` ゲームオブジェクトの▶をクリックすると▼になり, `StartButton` ゲームオブジェクトの子オブジェクトであるボタンのテキストのオブジェクトが表示されます. この子オブジェクトの `Text` を `Click Start` に変更して, `Font Size` を 80 に変更してください.
 
 ![setstartbutton](./setstartbutton.gif)
 
 ## 10.4. シーン遷移
 
-`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `TitleManager` という名前のスクリプトを作成して、以下のように書き換えてください。
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `TitleManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
 ```csharp title="TitleManager.cs" showLineNumbers
 using UnityEngine;
@@ -790,59 +790,59 @@ public class TitleManager : MonoBehaviour
 
 Hierarchy で右クリック -> `Create Empty` を選択
 
-オブジェクト名は `TitleManager` に変更してください。そして、`TitleManager` に `TitleManager` をアタッチしてください。
+オブジェクト名は `TitleManager` に変更してください. そして, `TitleManager` に `TitleManager` をアタッチしてください.
 
 ![createtitlemanager](./createtitlemanager.gif)
 
-Hierarchy の `StartButton` を選択し、`Inspector` で Buttonコンポーネントの `On Click()` の右下の方にある `+` をクリック。左下には Hierarchy の `TitleManager` ゲームオブジェクトをドラッグアンドドロップ。そして `NoFunction` をクリックしての `TitleManager -> OnButtonClicked` を選択してください。
+Hierarchy の `StartButton` を選択し, `Inspector` で Buttonコンポーネントの `On Click()` の右下の方にある `+` をクリック. 左下には Hierarchy の `TitleManager` ゲームオブジェクトをドラッグアンドドロップ. そして `NoFunction` をクリックしての `TitleManager -> OnButtonClicked` を選択してください.
 
 ![setonbuttonclicked](./setonbuttonclicked.gif)
 
-再生ボタン▶を押してみてください。タイトル画面が表示され、`Start` ボタンを押すと、ゲーム画面に遷移します。
+再生ボタン▶を押してみてください. タイトル画面が表示され, `Start` ボタンを押すと, ゲーム画面に遷移します.
 
 ![scenetrans](./scenetrans.gif)
 
-確認ができたら、再生ボタンを押して再生を停止してください。
+確認ができたら, 再生ボタンを押して再生を停止してください.
 
-Title シーンから SampleScene シーンに遷移することができました。
+Title シーンから SampleScene シーンに遷移することができました.
 
 # 10.5. スクリプトの説明
 
-`TitleManager` をダブルクリックして開いてください。
+`TitleManager` をダブルクリックして開いてください.
 
-`using UnityEngine.SceneManagement;` は、シーンに関することを使うためのおまじないです。
+`using UnityEngine.SceneManagement;` は, シーンに関することを使うためのおまじないです.
 
-`SceneManager.LoadScene` 関数は、引数で指定されたシーンに遷移します。ここでは、`MainScene` に遷移しています。
+`SceneManager.LoadScene` 関数は, 引数で指定されたシーンに遷移します. ここでは, `MainScene` に遷移しています.
 
-`public void OnButtonClicked()` は、`StartButton` がクリックされたときにUnityによって呼び出される関数です。これは、`StartButton` の `Button` コンポーネントの `On Click()` に設定したためです。よって、`StartButton` がクリックされたときに、`SceneManager.LoadScene` 関数を呼び出して、`MainScene` に遷移します。画面上でボタンのゲームオブジェクトがクリックされたという判定はUnityが自動的に行ってくれます.
+`public void OnButtonClicked()` は, `StartButton` がクリックされたときにUnityによって呼び出される関数です. これは, `StartButton` の `Button` コンポーネントの `On Click()` に設定したためです. よって, `StartButton` がクリックされたときに, `SceneManager.LoadScene` 関数を呼び出して, `MainScene` に遷移します. 画面上でボタンのゲームオブジェクトがクリックされたという判定はUnityが自動的に行ってくれます.
 
 # 11. ゲームクリアを作成する
 
-ここでは、ゲームクリアのシーンを作成します。
+ここでは, ゲームクリアのシーンを作成します.
 
 ## 11.1. ゲームクリアシーンを作成する
 
 Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択
 
-Scene の名前を `GameClear` に変更してください。そして、`GameClear` をダブルクリックして開いてください。
+Scene の名前を `GameClear` に変更してください. そして, `GameClear` をダブルクリックして開いてください.
 
-そして、左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください。これで `GameClear` が Build Profiles に追加されます。
+そして, 左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください. これで `GameClear` が Build Profiles に追加されます.
 
 ![createclearscene](./createclearscene.gif)
 
-ゲームクリアのテキストを作成します。
+ゲームクリアのテキストを作成します.
 
 `Hierarchy`で右クリック -> `UI` -> `Text - TextMeshPro` を選択
 
-`(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください。また, `Text` を `Game Clear` 、`Font Size` を 100 に変更してください。テキストの色は好きな色で構いませんが,見やすい色にしてください。`Alignment` は文字の中央揃えにします。
+`(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください. また, `Text` を `Game Clear` , `Font Size` を 100 に変更してください. テキストの色は好きな色で構いませんが,見やすい色にしてください. `Alignment` は文字の中央揃えにします.
 
 ![gameclear](./gameclear.png)
 
 ## 11.2. シーン遷移
 
-クリアシーンでクリックするとタイトルシーンに遷移するようにします。
+クリアシーンでクリックするとタイトルシーンに遷移するようにします.
 
-`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `GameClearManager` という名前のスクリプトを作成して、以下のように書き換えてください。
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `GameClearManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
 ```csharp title="GameClearManager.cs" showLineNumbers
 using UnityEngine;
@@ -869,25 +869,25 @@ public class GameClearManager : MonoBehaviour
 }
 ```
 
-タイトルシーンと同じようにボタンを作成し, `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください。ヒエラルキーの ボタンのオブジェクトの▶をクリックして子オブジェクトであるボタンのテキストのオブジェクトの `Text` を `Back to Title` に変更して, `Font Size` を 80 に変更してください。
+タイトルシーンと同じようにボタンを作成し, `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください. ヒエラルキーの ボタンのオブジェクトの▶をクリックして子オブジェクトであるボタンのテキストのオブジェクトの `Text` を `Back to Title` に変更して, `Font Size` を 80 に変更してください.
 
 ![backtotitlebutton](./backtotitlebutton.gif)
 
-Hierarchy で右クリック -> `Create Empty` を選択して `GameClearManager` を作成してください。そして、`GameClearManager` に `GameClearManager` をアタッチしてください。そしてタイトルシーンと同じように、`GameClearManager` の `On Click()` に `GameClearManager -> OnButtonClicked` を設定してください。
+Hierarchy で右クリック -> `Create Empty` を選択して `GameClearManager` を作成してください. そして, `GameClearManager` に `GameClearManager` をアタッチしてください. そしてタイトルシーンと同じように, `GameClearManager` の `On Click()` に `GameClearManager -> OnButtonClicked` を設定してください.
 
 ![setclearbutton](./setclearbutton.gif)
 
-再生ボタン▶を押してみてください。ゲームクリア画面が表示され、`Back to Title` ボタンを押すと、タイトル画面に遷移します。
+再生ボタン▶を押してみてください. ゲームクリア画面が表示され, `Back to Title` ボタンを押すと, タイトル画面に遷移します.
 
 ![checkclearscene](./checkclearscene.gif)
 
-確認ができたら、停止ボタン■を押して再生を停止してください。
+確認ができたら, 停止ボタン■を押して再生を停止してください.
 
-GameClear シーンから Title シーンに遷移することができました。
+GameClear シーンから Title シーンに遷移することができました.
 
 # 11.3. スコアをすべて取ったらゲームクリアにする
 
-`BallController` にゲームクリアの処理を追加します。
+`BallController` にゲームクリアの処理を追加します.
 
 ```csharp title="BallController.cs" showLineNumbers
 using UnityEngine;
@@ -947,77 +947,77 @@ public class BallController : MonoBehaviour
 }
 ```
 
-`MainScene`をダブルクリックして開き,再生ボタン▶を押してみてください。スコアが 10 になると、ゲームクリア画面に遷移します。
+`MainScene`をダブルクリックして開き,再生ボタン▶を押してみてください. スコアが 10 になると, ゲームクリア画面に遷移します.
 
 ![checkmaintoresult](./checkmaintoresult.gif)
 
-確認ができたら、停止ボタン■を押して再生を停止してください。
+確認ができたら, 停止ボタン■を押して再生を停止してください.
 
-これで、ゲームの一連の流れが完成しました。
+これで, ゲームの一連の流れが完成しました.
 
 # 12. マテリアルで見た目
 
-ここでは、マテリアルを使ってゲームオブジェクトにテクスチャを貼ったりして見た目を変更します。
+ここでは, マテリアルを使ってゲームオブジェクトにテクスチャを貼ったりして見た目を変更します.
 
 ## 12.1. スコアの見た目を変更する
 
 Project で右クリック -> `Create` -> `Material` を選択
 
-マテリアルの名前を `ScoreMaterial` に変更してください。
+マテリアルの名前を `ScoreMaterial` に変更してください.
 
 ![createscoremarerial](./createscoremarerial.gif)
 
-`ScoreMaterial` を選択し、`Inspector` で `Base Map` の色を好きな色に変更してください。(例では黄緑っぽい色にしてみました)
+`ScoreMaterial` を選択し, `Inspector` で `Base Map` の色を好きな色に変更してください. (例では黄緑っぽい色にしてみました)
 
 ![changescorecolor](./changescorecolor.png)
 
-`Score` プレバブに `ScoreMaterial` をドラッグアンドドロップしてください。そして再生ボタン▶を押してみてください。スコアゲームオブジェクトの色が変わっていることがわかります。
+`Score` プレバブに `ScoreMaterial` をドラッグアンドドロップしてください. そして再生ボタン▶を押してみてください. スコアゲームオブジェクトの色が変わっていることがわかります.
 
 ![checkscorecolor](./checkscorecolor.gif)
 
-確認ができたら、停止ボタン■を押して再生を停止してください。
+確認ができたら, 停止ボタン■を押して再生を停止してください.
 
 ## 12.2. ボールの見た目を変更する
 
-以下のテクスチャをボールに貼り付けてみようと思います。
+以下のテクスチャをボールに貼り付けてみようと思います.
 
 ![balltexture](./BallTexture.png)
 
 [ここをクリックでダウンロード](./BallTexture.png)
 
-ダウンロードしたら、`Assets` にドラッグアンドドロップしてください。
+ダウンロードしたら, `Assets` にドラッグアンドドロップしてください.
 
 Assets で右クリック -> `Create` -> `Material` を選択
 
-マテリアルの名前を `BallMaterial` に変更してください。
+マテリアルの名前を `BallMaterial` に変更してください.
 
-`BallMaterial` を選択し、`Inspector` で `Base Map` の `Texture` に `BallTexture` をドラッグアンドドロップしてください。そして、`BallMaterial` を Hierarchy の `Sphere` にドラッグアンドドロップしてください。
+`BallMaterial` を選択し, `Inspector` で `Base Map` の `Texture` に `BallTexture` をドラッグアンドドロップしてください. そして, `BallMaterial` を Hierarchy の `Sphere` にドラッグアンドドロップしてください.
 
 ![setballmaterial](./setballmaterial.gif)
 
-ボールの見た目が変わっていることがわかります。
+ボールの見た目が変わっていることがわかります.
 
-再生ボタンを押してみてください。
+再生ボタンを押してみてください.
 
 ![cheackchangedballmaterial](./cheackchangedballmaterial.gif)
 
 # 13. 音を鳴らす
 
-ここでは、ボールが得点に触れたときに音を鳴らしたり、BGMを鳴らす処理を追加します。
+ここでは, ボールが得点に触れたときに音を鳴らしたり, BGMを鳴らす処理を追加します.
 
-今回は、ボールを取ったときの音に効果音ラボの音、BGMにはNCSの音を使います。いずれも無料で商用利用可能な音源です。
+今回は, ボールを取ったときの音に効果音ラボの音, BGMにはNCSの音を使います. いずれも無料で商用利用可能な音源です.
 
 [効果音ラボ](https://soundeffect-lab.info/sound/button/)
 
 [NCS](https://ncs.io/)
 
-この中から、好きな音をダウンロードしてください。例では効果音ラボから `成功音` 、NCS から [On & On](https://ncs.io/onandon) [Invincible](https://ncs.io/Invincible) [Blank](https://ncs.io/Blank) をダウンロードしました。
+この中から, 好きな音をダウンロードしてください. 例では効果音ラボから `成功音` , NCS から [On & On](https://ncs.io/onandon) [Invincible](https://ncs.io/Invincible) [Blank](https://ncs.io/Blank) をダウンロードしました.
 
-ダウンロードしたら、`Assets` にドラッグアンドドロップしてください。
+ダウンロードしたら, `Assets` にドラッグアンドドロップしてください.
 
 ## 13.1. 得点を取ったときの効果音を鳴らす
 
-`BallController` を開いて以下を追加してください。
+`BallController` を開いて以下を追加してください.
 
 ```csharp title="BallController.cs" showLineNumbers
 using UnityEngine;
@@ -1081,60 +1081,60 @@ public class BallController : MonoBehaviour
 }
 ```
 
-Hierarchy で `Sphere` を選択し、`Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
+Hierarchy で `Sphere` を選択し, `Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
 
-`Sphere` の `BallController` の Inspector にある `Score Sound` に `成功音` をドラッグアンドドロップしてください。
+`Sphere` の `BallController` の Inspector にある `Score Sound` に `成功音` をドラッグアンドドロップしてください.
 
 ![scoresound](./scoresound.gif)
 
-再生ボタンを押してみてください。スコアにふれると音が鳴ることがわかります。
+再生ボタンを押してみてください. スコアにふれると音が鳴ることがわかります.
 
 ## 13.2. BGMを鳴らす
 
-`Hierarchy` で `Main Camera` を選択し、`Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
+`Hierarchy` で `Main Camera` を選択し, `Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
 
-`Main Camera` の Inspector にある `Audio Resource` の `AudioClip` にお好きな曲をドラッグアンドドロップしてください。そして、 `Play On Awake` と `Loop` にチェックを入れてください。
+`Main Camera` の Inspector にある `Audio Resource` の `AudioClip` にお好きな曲をドラッグアンドドロップしてください. そして,  `Play On Awake` と `Loop` にチェックを入れてください.
 
-これを他の2つのシーン (`Title`, `GameClear`) にも行ってください。どのシーンでどの曲を鳴らすかはお好みで構いません。
+これを他の2つのシーン (`Title`, `GameClear`) にも行ってください. どのシーンでどの曲を鳴らすかはお好みで構いません.
 
 ![playbgm](./playbgm.gif)
 
-再生ボタンを押してみてください。BGMが流れることがわかります。
+再生ボタンを押してみてください. BGMが流れることがわかります.
 
 ## 13.3. スクリプトの説明
 
-`AudioSource` は、Unity でオブジェクトから音を鳴らすためのコンポーネントです。`AudioClip` は、音声データを保持するためのクラスです。Unityでは,音源データはすべて `AudioClip` として扱われます.`Audio Source` コンポーネントの`Audio Resource` には, `AudioClip` を設定することで、その音声データを再生できます。`Play On Awake` は、ゲームオブジェクトが生成されたときに自動的に音を再生するかどうかを設定します。`Loop` は、音声データをループ再生するかどうかを設定します。
+`AudioSource` は, Unity でオブジェクトから音を鳴らすためのコンポーネントです. `AudioClip` は, 音声データを保持するためのクラスです. Unityでは,音源データはすべて `AudioClip` として扱われます.`Audio Source` コンポーネントの`Audio Resource` には, `AudioClip` を設定することで, その音声データを再生できます. `Play On Awake` は, ゲームオブジェクトが生成されたときに自動的に音を再生するかどうかを設定します. `Loop` は, 音声データをループ再生するかどうかを設定します.
 
-`AudioSource.PlayOneShot()` 関数は、引数で指定された `AudioClip` を一度だけ再生します。ここでは、得点を取ったときに `ScoreSound` を再生しています。この関数は,スコアを取ったときなど,一瞬だけ音を鳴らしたいときに使います。
+`AudioSource.PlayOneShot()` 関数は, 引数で指定された `AudioClip` を一度だけ再生します. ここでは, 得点を取ったときに `ScoreSound` を再生しています. この関数は,スコアを取ったときなど,一瞬だけ音を鳴らしたいときに使います.
 
 # 14. ゲームをビルドする
 
-ここでは、ゲームをビルドして実行ファイルを作成します。
+ここでは, ゲームをビルドして実行ファイルを作成します.
 
 ## 14.1. シーンの設定
 
-`File` -> `Build Profiles` で `Scene List` を開いてください。`Scene List` で、 `TitleScene` が一番上に来るようにドラッグアンドドロップしてください。ビルド後のゲームは、一番上にあるシーンから始まります。
+`File` -> `Build Profiles` で `Scene List` を開いてください. `Scene List` で,  `TitleScene` が一番上に来るようにドラッグアンドドロップしてください. ビルド後のゲームは, 一番上にあるシーンから始まります.
 
 ![toptotitlescene](./toptotitlescene.gif)
 
 ## 14.2. ビルド
 
-`File` -> `Build Profiles` でPlatformsから自身のOSを選択してください。
+`File` -> `Build Profiles` でPlatformsから自身のOSを選択してください.
 
 * Windows
 
 ![buildfolder](./buildfolder.gif)
 
-どのフォルダに保存するか聞かれるので、右クリックして `Build` というフォルダを作って、選択してください。
+どのフォルダに保存するか聞かれるので, 右クリックして `Build` というフォルダを作って, 選択してください.
 
-ビルド後、`Build` フォルダに実行ファイルが作成されます。自分でつけたゲームのタイトル名の実行ファイルがビルドしてできたゲームです。
+ビルド後, `Build` フォルダに実行ファイルが作成されます. 自分でつけたゲームのタイトル名の実行ファイルがビルドしてできたゲームです.
 
 ![buildresult](./buildresult.png)
 
 # 15. さいごに
 
-これで、Unity でのゲーム制作の基本的な流れを学ぶことができました。ゲーム制作は、アイデアを形にする楽しいプロセスです。今回のチュートリアルを通じて、Unity の基本的な使い方や C# の基礎を学ぶことができたと思います。これからも、Unity を使って様々なゲームを作ってみてください。
+これで, Unity でのゲーム制作の基本的な流れを学ぶことができました. ゲーム制作は, アイデアを形にする楽しいプロセスです. 今回のチュートリアルを通じて, Unity の基本的な使い方や C# の基礎を学ぶことができたと思います. これからも, Unity を使って様々なゲームを作ってみてください.
 
 ## 15.1. ビルドしたらボールの動きが早くなる！？
 
-Unity でビルドしたゲームを実行すると、エディタ上での動きと比べてボールの動きが速くなることがあります。これは、Unity のエディタでのフレームレートとビルド後のフレームレートが異なるためです。Unity のエディタ上でゲームを再生してる際は,デバックのしやすさのために様々な処理が動いています.そのため,エディタ上でのフレームレートは低くなりがちです。しかし,ビルドをすると,エディタ上でのデバック処理がなくなり,プログラムの最適化も行われます.そのため,同じコードでもビルド後の方がフレームレートが高くなり,Update関数がより多くの回数呼び出されるため,ボールの動きが速くなることがあります。
+Unity でビルドしたゲームを実行すると, エディタ上での動きと比べてボールの動きが速くなることがあります. これは, Unity のエディタでのフレームレートとビルド後のフレームレートが異なるためです. Unity のエディタ上でゲームを再生してる際は,デバックのしやすさのために様々な処理が動いています.そのため,エディタ上でのフレームレートは低くなりがちです. しかし,ビルドをすると,エディタ上でのデバック処理がなくなり,プログラムの最適化も行われます.そのため,同じコードでもビルド後の方がフレームレートが高くなり,Update関数がより多くの回数呼び出されるため,ボールの動きが速くなることがあります.
