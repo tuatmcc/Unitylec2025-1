@@ -1000,3 +1000,109 @@ Assets で右クリック -> `Create` -> `Material` を選択
 再生ボタンを押してみてください。
 
 ![cheackchangedballmaterial](./cheackchangedballmaterial.gif)
+
+# 13. 音を鳴らす
+
+ここでは、ボールが得点に触れたときに音を鳴らしたり、BGMを鳴らす処理を追加します。
+
+今回は、ボールを取ったときの音に効果音ラボの音、BGMにはNCSの音を使います。いずれも無料で商用利用可能な音源です。
+
+[効果音ラボ](https://soundeffect-lab.info/sound/button/)
+
+[NCS](https://ncs.io/)
+
+この中から、好きな音をダウンロードしてください。例では効果音ラボから `成功音` 、NCS から [On & On](https://ncs.io/onandon) [Invincible](https://ncs.io/Invincible) [Blank](https://ncs.io/Blank) をダウンロードしました。
+
+ダウンロードしたら、`Assets` にドラッグアンドドロップしてください。
+
+## 13.1. 得点を取ったときの効果音を鳴らす
+
+`BallController` を開いて以下を追加してください。
+
+```csharp title="BallController.cs" showLineNumbers
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+
+public class BallController : MonoBehaviour
+{
+    private Rigidbody _rb;
+    private int _score = 0;
++   private AudioSource audioSource;
+    [SerializeField] private TextMeshProUGUI scoreText;
++   [SerializeField] private AudioClip ScoreSound;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
++       audioSource = GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            _rb.AddForce(new Vector3(0, 0, 1));
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            _rb.AddForce(new Vector3(0, 0, -1));
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            _rb.AddForce(new Vector3(-1, 0, 0));
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            _rb.AddForce(new Vector3(1, 0, 0));
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "Score(Clone)")
+        {
+            _score++;
+            Debug.Log("Score: " + _score);
+            Destroy(collision.gameObject);
+            scoreText.text = "Score: " + _score;
++           audioSource.PlayOneShot(ScoreSound);
+            if (_score == 10)
+            {
+                SceneManager.LoadScene("GameClear");
+            }
+        }
+    }
+}
+```
+
+Hierarchy で `Sphere` を選択し、`Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
+
+`Sphere` の `BallController` の Inspector にある `Score Sound` に `成功音` をドラッグアンドドロップしてください。
+
+![scoresound](./scoresound.gif)
+
+再生ボタンを押してみてください。スコアにふれると音が鳴ることがわかります。
+
+## 13.2. BGMを鳴らす
+
+`Hierarchy` で `Main Camera` を選択し、`Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
+
+`Main Camera` の Inspector にある `Audio Resource` の `AudioClip` にお好きな曲をドラッグアンドドロップしてください。そして、 `Play On Awake` と `Loop` にチェックを入れてください。
+
+これを他の2つのシーン (`Title`, `GameClear`) にも行ってください。どのシーンでどの曲を鳴らすかはお好みで構いません。
+
+![playbgm](./playbgm.gif)
+
+再生ボタンを押してみてください。BGMが流れることがわかります。
+
+## 13.3. スクリプトの説明
+
+`AudioSource` は、Unity でオブジェクトから音を鳴らすためのコンポーネントです。`AudioClip` は、音声データを保持するためのクラスです。Unityでは,音源データはすべて `AudioClip` として扱われます.`Audio Source` コンポーネントの`Audio Resource` には, `AudioClip` を設定することで、その音声データを再生できます。`Play On Awake` は、ゲームオブジェクトが生成されたときに自動的に音を再生するかどうかを設定します。`Loop` は、音声データをループ再生するかどうかを設定します。
+
+`AudioSource.PlayOneShot()` 関数は、引数で指定された `AudioClip` を一度だけ再生します。ここでは、得点を取ったときに `ScoreSound` を再生しています。この関数は,スコアを取ったときなど,一瞬だけ音を鳴らしたいときに使います。
