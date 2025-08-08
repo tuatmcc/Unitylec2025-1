@@ -722,3 +722,96 @@ Hierarchy にある `Sphere` を選択し、`BallController` の Inspector に�
 `scoreText.text` は、`TextMeshPro` コンポーネントの `text` プロパティを表し,この変数に文字列を代入すると、その文字列にテキストが更新されます。ここでは,`Score: [現在のスコア]` を代入しています。
 
 `scoreText.text` に `Score: + score` を代入することで、スコアが更新され、スコアが表示されます。
+
+# 10. ゲームタイトルシーンを作成する
+
+ここでは、ゲームのタイトルシーンを作成します。
+
+Scene とは、 Unity でゲームを作るときに必要なゲームオブジェクトや設定を保存するためのファイルです。 Scene は、ゲームのステージやメニュー画面など、ゲームの場面を表します。今まで作成したステージは、`MainScene` という名前の Scene に保存されています。 Project タブの `Assets/Scences` の中に `MainScene` という名前の Scene があるのがわかります。これに加え,ゲームのタイトルシーンを作成します。
+
+## 10.1. ゲームタイトルシーンを作成する
+
+Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択してください.名前は `TitleScene` にしてください。
+
+![createtitlescene](./createtitlescene.gif)
+
+`TitleScene` 作成したらダブルクリックして開いてください。
+
+Unity では,シーンを作成したら `Build Profiles` に追加する必要があります。左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください。これで `TitleScene` が Build Profiles に追加されます。`MainScene` ははじめから追加されています。
+
+![addscenelist](addscenelist.gif)
+
+## 10.2. タイトルのテキスト
+
+`Hierarchy`で右クリック -> `UI` -> `Text - TextMeshPro` を選択
+
+オブジェクト名は `Title` に変更してください。そして、`Title` の `(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください。また, `Title` の Text を `RollingBall` 、`Font Size` を 100 に変更してください。テキストの色は好きな色で構いませんが,見やすい色にしてください。`Alignment` は文字の中央揃えにしたり,左揃えにしたりできます. ここでは上下左右ともに中央揃えにします。
+
+![settitletext](./settitletext.gif)
+
+## 10.3. スタートボタン
+
+`Hierarchy`で右クリック -> `UI` -> `Button - TextMeshPro` を選択
+
+オブジェクト名は `StartButton` に変更してください。そして、`StartButton` の `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください。ヒエラルキーの `StartButton` ゲームオブジェクトの▶をクリックすると▼になり, `StartButton` ゲームオブジェクトの子オブジェクトであるボタンのテキストのオブジェクトが表示されます。この子オブジェクトの `Text` を `Click Start` に変更して, `Font Size` を 80 に変更してください。
+
+![setstartbutton](./setstartbutton.gif)
+
+## 10.4. シーン遷移
+
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `TitleManager` という名前のスクリプトを作成して、以下のように書き換えてください。
+
+```csharp title="TitleManager.cs" showLineNumbers
+using UnityEngine;
++ using UnityEngine.SceneManagement;
+
+public class TitleManager : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
++    public void OnButtonClicked()
++    {
++        SceneManager.LoadScene("MainScene");
++    }
+}
+
+```
+
+Hierarchy で右クリック -> `Create Empty` を選択
+
+オブジェクト名は `TitleManager` に変更してください。そして、`TitleManager` に `TitleManager` をアタッチしてください。
+
+![createtitlemanager](./createtitlemanager.gif)
+
+Hierarchy の `StartButton` を選択し、`Inspector` で Buttonコンポーネントの `On Click()` の右下の方にある `+` をクリック。左下には Hierarchy の `TitleManager` ゲームオブジェクトをドラッグアンドドロップ。そして `NoFunction` をクリックしての `TitleManager -> OnButtonClicked` を選択してください。
+
+![setonbuttonclicked](./setonbuttonclicked.gif)
+
+再生ボタン▶を押してみてください。タイトル画面が表示され、`Start` ボタンを押すと、ゲーム画面に遷移します。
+
+![scenetrans](./scenetrans.gif)
+
+確認ができたら、再生ボタンを押して再生を停止してください。
+
+Title シーンから SampleScene シーンに遷移することができました。
+
+# 10.5. スクリプトの説明
+
+`TitleManager` をダブルクリックして開いてください。
+
+`using UnityEngine.SceneManagement;` は、シーンに関することを使うためのおまじないです。
+
+`SceneManager.LoadScene` 関数は、引数で指定されたシーンに遷移します。ここでは、`MainScene` に遷移しています。
+
+`public void OnButtonClicked()` は、`StartButton` がクリックされたときにUnityによって呼び出される関数です。これは、`StartButton` の `Button` コンポーネントの `On Click()` に設定したためです。よって、`StartButton` がクリックされたときに、`SceneManager.LoadScene` 関数を呼び出して、`MainScene` に遷移します。画面上でボタンのゲームオブジェクトがクリックされたという判定はUnityが自動的に行ってくれます.
