@@ -815,3 +815,142 @@ Title シーンから SampleScene シーンに遷移することができまし�
 `SceneManager.LoadScene` 関数は、引数で指定されたシーンに遷移します。ここでは、`MainScene` に遷移しています。
 
 `public void OnButtonClicked()` は、`StartButton` がクリックされたときにUnityによって呼び出される関数です。これは、`StartButton` の `Button` コンポーネントの `On Click()` に設定したためです。よって、`StartButton` がクリックされたときに、`SceneManager.LoadScene` 関数を呼び出して、`MainScene` に遷移します。画面上でボタンのゲームオブジェクトがクリックされたという判定はUnityが自動的に行ってくれます.
+
+# 11. ゲームクリアを作成する
+
+ここでは、ゲームクリアのシーンを作成します。
+
+## 11.1. ゲームクリアシーンを作成する
+
+Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択
+
+Scene の名前を `GameClear` に変更してください。そして、`GameClear` をダブルクリックして開いてください。
+
+そして、左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください。これで `GameClear` が Build Profiles に追加されます。
+
+![createclearscene](./createclearscene.gif)
+
+ゲームクリアのテキストを作成します。
+
+`Hierarchy`で右クリック -> `UI` -> `Text - TextMeshPro` を選択
+
+`(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください。また, `Text` を `Game Clear` 、`Font Size` を 100 に変更してください。テキストの色は好きな色で構いませんが,見やすい色にしてください。`Alignment` は文字の中央揃えにします。
+
+![gameclear](./gameclear.png)
+
+## 11.2. シーン遷移
+
+クリアシーンでクリックするとタイトルシーンに遷移するようにします。
+
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `GameClearManager` という名前のスクリプトを作成して、以下のように書き換えてください。
+
+```csharp title="GameClearManager.cs" showLineNumbers
+using UnityEngine;
++ using UnityEngine.SceneManagement;
+
+public class GameClearManager : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
++    public void OnButtonClicked()
++    {
++        SceneManager.LoadScene("TitleScene");
++    }
+}
+```
+
+タイトルシーンと同じようにボタンを作成し, `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください。ヒエラルキーの ボタンのオブジェクトの▶をクリックして子オブジェクトであるボタンのテキストのオブジェクトの `Text` を `Back to Title` に変更して, `Font Size` を 80 に変更してください。
+
+![backtotitlebutton](./backtotitlebutton.gif)
+
+Hierarchy で右クリック -> `Create Empty` を選択して `GameClearManager` を作成してください。そして、`GameClearManager` に `GameClearManager` をアタッチしてください。そしてタイトルシーンと同じように、`GameClearManager` の `On Click()` に `GameClearManager -> OnButtonClicked` を設定してください。
+
+![setclearbutton](./setclearbutton.gif)
+
+再生ボタン▶を押してみてください。ゲームクリア画面が表示され、`Back to Title` ボタンを押すと、タイトル画面に遷移します。
+
+![checkclearscene](./checkclearscene.gif)
+
+確認ができたら、停止ボタン■を押して再生を停止してください。
+
+GameClear シーンから Title シーンに遷移することができました。
+
+# 11.3. スコアをすべて取ったらゲームクリアにする
+
+`BallController` にゲームクリアの処理を追加します。
+
+```csharp title="BallController.cs" showLineNumbers
+using UnityEngine;
+using TMPro;
++ using UnityEngine.SceneManagement;
+
+public class BallController : MonoBehaviour
+{
+    private Rigidbody _rb;
+    private int _score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            _rb.AddForce(new Vector3(0, 0, 1));
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            _rb.AddForce(new Vector3(0, 0, -1));
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            _rb.AddForce(new Vector3(-1, 0, 0));
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            _rb.AddForce(new Vector3(1, 0, 0));
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "Score(Clone)")
+        {
+            _score++;
+            Debug.Log("Score: " + _score);
+            Destroy(collision.gameObject);
+            scoreText.text = "Score: " + _score;
++           if(_score == 10)
++           {
++               SceneManager.LoadScene("GameClear");
++           }
+        }
+    }
+}
+```
+
+`MainScene`をダブルクリックして開き,再生ボタン▶を押してみてください。スコアが 10 になると、ゲームクリア画面に遷移します。
+
+![checkmaintoresult](./checkmaintoresult.gif)
+
+確認ができたら、停止ボタン■を押して再生を停止してください。
+
+これで、ゲームの一連の流れが完成しました。
