@@ -603,3 +603,122 @@ public class BallController : MonoBehaviour
 ## 8.1. スクリプトの説明
 
 ただの当たり判定は,物理演算に影響を与えます.しかし,今回のように触れたら回収するアイテムといったものや,特定のエリアへの侵入検知などは,物理演算に影響を与えない当たり判定が必要です.そこで,`Collider` コンポーネントの `Is Trigger` を有効にします。これにより、当たり判定はあるけど物理演算には影響を与えない状態になります。`Is Trigger` を有効にした `Collider` コンポーネントは、`OnTriggerEnter` 関数を使って当たり判定を検知します。
+
+# 9. スコアをテキストで表示する
+
+ここでは、スコアを表示する UI を作成します。
+
+## 9.1. 画面比の設定
+
+まず、画面比を設定します。`Game` タブの上にある `Free Aspect` を `Full HD (1920x1080)` に変更してください。
+
+![setgameaspect](./setaspect.gif)
+
+これでゲーム画面の比率が 16:9 でFull HDの解像度になります。
+
+## 9.2. テキストの追加
+
+`Hierarchy`で右クリック -> `UI` -> `Text - TextMeshPro` を選択
+
+![create text](./createtext.gif)
+
+TMP Importer が表示されるので、`Import TMP Essentials` をクリックしてください。
+
+![tmpimporter](./tmpimporter.png)
+
+Canvas の子要素として `Text` が追加されました。 Game タブの真ん中の方に `New Text` というテキストが表示しているのがわかります。
+
+![createdtext](./createdtext.png)
+
+Canvas とは、 Unity で UI を使うときに必要なゲームオブジェクトです。UI を表示するためのゲームオブジェクトを Canvas の子要素として追加することで、画面に UI を表示できます。UI は、ゲーム画面の上に重ねて表示されます。
+
+## 9.3. テキストの調整
+
+`Text` の (PosX, PosY, PosZ) を (-660, 440, 0)、(Width, Height) を (500, 100) に変更してください。また, `Text` を `Score: 0`、Font Size を 80 に変更してください。 `Vertex Color` では好きな色に設定してください。
+
+![setscoretext](./setscoretext.gif)
+
+これで、左上の方にスコアが表示されるようになりました。
+
+![setuped](./setuped.png)
+
+## 9.3. スコアを表示するスクリプトを作成する
+
+`BallController` にスコアを表示するスクリプトを追加します。 `BallController` をダブルクリックして開いてください。
+
+```csharp title="BallController.cs" showLineNumbers
+using UnityEngine;
++ using TMPro;
+
+public class BallController : MonoBehaviour
+{
+    private Rigidbody _rb;
+    private int _score = 0;
++   [SerializeField] private TextMeshProUGUI scoreText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            _rb.AddForce(new Vector3(0, 0, 1));
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            _rb.AddForce(new Vector3(0, 0, -1));
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            _rb.AddForce(new Vector3(-1, 0, 0));
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            _rb.AddForce(new Vector3(1, 0, 0));
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "Score(Clone)")
+        {
+            _score++;
+            Debug.Log("Score: " + _score);
+            Destroy(collision.gameObject);
++           scoreText.text = "Score: " + _score;
+        }
+    }
+}
+```
+
+Hierarchy にある `Sphere` を選択し、`BallController` の Inspector にある `Score Text` に先ほど作成した `Text` をドラッグアンドドロップしてください。
+
+![settext](./settext.gif)
+
+再生ボタン▶を押してみてください。スコアが表示されることを確認してください。取るたびにスコアが増えていくことがわかります。
+
+![getscorecheck](./getscorecheck.gif)
+
+確認ができたら、停止ボタン■を押して再生を停止してください。
+
+また,こまめに `Ctrl + S` で保存することを忘れないでください。
+
+## 9.4. スクリプトの説明
+
+`BallController` をダブルクリックして開いてください。
+
+`using TMPro;` unity でテキストを扱うTextMeshProを使うためのおまじないです。
+
+変数 `scoreText` は `TextMeshProUGUI` 型の変数です。`TextMeshPro` コンポーネントを代入することで、その `TextMeshPro` を**参照**できます。Canvas の子要素として追加した `Text` は、`TextMeshProUGUI` コンポーネントを持っています。`TextMeshProUGUI` 型の変数に `TextMeshPro` コンポーネントを持ったゲームオブジェクトを代入することで、その `TextMeshPro` を**参照**できます。
+
+`scoreText.text` は、`TextMeshPro` コンポーネントの `text` プロパティを表し,この変数に文字列を代入すると、その文字列にテキストが更新されます。ここでは,`Score: [現在のスコア]` を代入しています。
+
+`scoreText.text` に `Score: + score` を代入することで、スコアが更新され、スコアが表示されます。
