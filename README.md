@@ -513,7 +513,7 @@ public class CameraController : MonoBehaviour
     }
 }
 ```
-<details>
+</details>
 
 `CameraController` をドラッグアンドドロップで `Main Camera` にアタッチしてください.
 
