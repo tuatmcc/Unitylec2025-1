@@ -904,7 +904,7 @@ Unity では, シーンを作成したら `Build Profiles` に追加する必要
 
 `Hierarchy` で右クリック -> `UI` -> `Button - TextMeshPro` を選択
 
-オブジェクト名は `StartButton` に変更してください. そして, `StartButton` の `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください. `Hierarchy` タブの `StartButton` の左側にある ▶ をクリックすると ▼ になり, `StartButton` ゲームオブジェクトの子オブジェクトであるボタンのテキストのオブジェクトが表示されます. この子オブジェクトの `Text` を `Click to Start` に変更して, `Font Size` を `60` に変更してください.
+オブジェクト名は `StartButton` に変更してください. そして, `StartButton` の `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください. `Hierarchy` タブの `StartButton` の左側にある ▶ をクリックすると ▼ になり, `StartButton` ゲームオブジェクトの子オブジェクトであるボタンのテキストのオブジェクトが表示されます. この子オブジェクトの `Text` を `Click Start` に変更して, `Font Size` を `60` に変更してください.
 
 ![setstartbutton](./setstartbutton.gif)
 
