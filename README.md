@@ -545,7 +545,7 @@ public class BallController : MonoBehaviour
 
 そして, `BallController` の `OnCollisionEnter` 関数を `OnTriggerEnter` 関数に変更してください.
 
-```csharp title="BallController.cs" showLineNumbers
+```diff lang="csharp" title="BallController.cs" showLineNumbers
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -646,7 +646,7 @@ Canvas とは,  Unity で UI を使うときに必要なゲームオブジェク
 
 `BallController` にスコアを表示するスクリプトを追加します.  `BallController` をダブルクリックして開いてください.
 
-```csharp title="BallController.cs" showLineNumbers
+```diff lang="csharp" title="BallController.cs" showLineNumbers
 using UnityEngine;
 + using TMPro;
 
@@ -761,7 +761,7 @@ Unity では,シーンを作成したら `Build Profiles` に追加する必要�
 
 `Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `TitleManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
-```csharp title="TitleManager.cs" showLineNumbers
+```diff lang="csharp" title="TitleManager.cs" showLineNumbers
 using UnityEngine;
 + using UnityEngine.SceneManagement;
 
@@ -844,7 +844,7 @@ Scene の名前を `GameClear` に変更してください. そして, `GameClea
 
 `Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `GameClearManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
-```csharp title="GameClearManager.cs" showLineNumbers
+```diff lang="csharp" title="GameClearManager.cs" showLineNumbers
 using UnityEngine;
 + using UnityEngine.SceneManagement;
 
@@ -889,7 +889,7 @@ GameClear シーンから Title シーンに遷移することができました
 
 `BallController` にゲームクリアの処理を追加します.
 
-```csharp title="BallController.cs" showLineNumbers
+```diff lang="csharp" title="BallController.cs" showLineNumbers
 using UnityEngine;
 using TMPro;
 + using UnityEngine.SceneManagement;
@@ -1019,7 +1019,7 @@ Assets で右クリック -> `Create` -> `Material` を選択
 
 `BallController` を開いて以下を追加してください.
 
-```csharp title="BallController.cs" showLineNumbers
+```diff lang="csharp" title="BallController.cs" showLineNumbers
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
