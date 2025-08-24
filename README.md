@@ -942,7 +942,7 @@ public class TitleManager : MonoBehaviour
 
 Hierarchy で右クリック -> `Create Empty` を選択
 
-オブジェクト名は `TitleManager` に変更してください. そして, 今作ったシーン上の `TitleManager` に `TitleManager` スクリプトをアタッチしてください.
+オブジェクト名は `TitleManager` に変更してください. そして, 今作った `TitleManager` オブジェクトに `TitleManager` スクリプトをアタッチしてください.
 
 ![createtitlemanager](./createtitlemanager.gif)
 
@@ -1025,7 +1025,7 @@ public class GameClearManager : MonoBehaviour
 
 ![backtotitlebutton](./backtotitlebutton.gif)
 
-`Hierarchy` で右クリック -> `Create Empty` を選択して `GameClearManager` を作成してください. そして, `GameClearManager` に `GameClearManager` をアタッチしてください. そしてタイトルシーンと同じように, `GameClearManager` の `On Click()` に `GameClearManager -> OnButtonClicked` を設定してください.
+`Hierarchy` で右クリック -> `Create Empty` を選択して `GameClearManager` を作成してください. そして, 今作った `GameClearManager` オブジェクトに `GameClearManager` スクリプトをアタッチしてください. そしてタイトルシーンと同じように, `GameClearManager` の `On Click()` に `GameClearManager -> OnButtonClicked` を設定してください.
 
 ![setclearbutton](./setclearbutton.gif)
 
