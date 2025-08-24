@@ -189,7 +189,7 @@ Hierarchyで右クリック -> 3D Object -> Sphere を選択
 
 以下のようにスクリプトを書き換えてください. プログラムの説明は後で行います.
 
-```csharp title="BallController.cs" showLineNumbers
+```diff lang="csharp" title="BallController.cs" showLineNumbers
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -305,7 +305,7 @@ Prefab とは, ゲームオブジェクトの**設計図**のようなもので�
 
 以下のようにスクリプトを書き換えてください. プログラムの説明は後で行います.
 
-```csharp title="ScoreManager.cs" showLineNumbers
+```diff lang="csharp" title="ScoreManager.cs" showLineNumbers
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -395,7 +395,7 @@ Prefab はゲームオブジェクトの設計図なので,Prefabで適応させ
 
 `Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `CameraController` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
-```csharp title="CameraController.cs" showLineNumbers
+```diff lang="" title="CameraController.cs" showLineNumbers
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -446,7 +446,7 @@ public class CameraController : MonoBehaviour
 
 `BallController` を以下のように書き換えてください.
 
-```csharp title="BallController.cs" showLineNumbers
+```diff lang="csharp" title="BallController.cs" showLineNumbers
 using UnityEngine;
 
 public class BallController : MonoBehaviour
