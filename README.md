@@ -1,7 +1,7 @@
 ---
-title: "【GIF付き】写経で学ぶ Unity - 玉転がしゲームを作ろう (2025年版)"
-date: "2025-05-28"
-author: "sugawa197203"
+title: 【GIF付き】写経で学ぶ Unity - 玉転がしゲームを作ろう (2025年版)
+date: 2025-05-28
+author: sugawa197203
 ---
 
 難易度: ★☆☆☆☆ 入門レベル
@@ -11,6 +11,7 @@ author: "sugawa197203"
 * この記事は Unity 講習会 2025 の資料です.
 * Unity やってみたいけど何をすればいいのかわからない人を0を1にするための講習会です.
 * 2024年度版とほぼほぼ一緒です. Unity6用に書き換えちょっと修正した感じです.
+* できる限りコピペではなく写経することをおすすめします.
 
 ## 1.1. 前提条件, 注意事項
 
@@ -941,7 +942,7 @@ public class TitleManager : MonoBehaviour
 
 Hierarchy で右クリック -> `Create Empty` を選択
 
-オブジェクト名は `TitleManager` に変更してください. そして, `TitleManager` に `TitleManager` をアタッチしてください.
+オブジェクト名は `TitleManager` に変更してください. そして, 今作ったシーン上の `TitleManager` に `TitleManager` スクリプトをアタッチしてください.
 
 ![createtitlemanager](./createtitlemanager.gif)
 
