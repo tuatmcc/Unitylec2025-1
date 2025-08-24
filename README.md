@@ -171,7 +171,7 @@ Hierarchyで右クリック -> 3D Object -> Sphere を選択
 
 ## 5.1. スクリプトを作成する
 
-`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `Scripting` -> `MonoBehaviour Script` を選択してください. このとき, ファイル名を `BallController` にしてください.
+`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script` を選択してください. このとき, ファイル名を `BallController` にしてください.
 
 ![create ball script](./createballscript.gif)
 
