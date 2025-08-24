@@ -175,7 +175,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 ![create ball script](./createballscript.gif)
 
-作成時に名前を `BallController` にし忘れた場合は `BallController` を右クリックして `Rename` を選べばファイル名を変更できます.
+作成時に名前を `BallController` にし忘れた場合は `BallController` を右クリックして `Rename` を選べばファイル名を変更できます. 違う名前でスクリプトを作成してしまった場合は、ファイル名だけでなく、クラス名も修正する必要があります。
 
 ![named ball controller](./namedballcontroller.png)
 
