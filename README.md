@@ -34,7 +34,7 @@ author: sugawa197203
 
 Unity Hubを起動します. Unity HubはUnityのプロジェクトを管理するためのツールです. Unity Hubを起動すると, プロジェクトの一覧が表示されます. 以下の写真では, 何もプロジェクトがない状態です.
 
-![Unity Hub](./hubhome.png)
+![Unity Hub](./hubhome.avif)
 
 左にある `Install` を開くとパソコンにインストール済みのUnity Editor本体の一覧を見ることができます.
 
