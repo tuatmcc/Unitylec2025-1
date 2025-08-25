@@ -38,11 +38,11 @@ Unity Hubを起動します. Unity HubはUnityのプロジェクトを管理す�
 
 左にある `Install` を開くとパソコンにインストール済みのUnity Editor本体の一覧を見ることができます.
 
-![Unity Editor](./editors.png)
+![Unity Editor](./editors.avif)
 
 Unity のプロジェクトを作ります. 左の `Projects` をクリックして, プロジェクト一覧に戻ってください. そして, 右上の `New Project` ボタンをクリックします.
 
-![Create Project](./createproject.png)
+![Create Project](./createproject.avif)
 
 プロジェクトの初期化画面が表示されます. 以下のように設定してください.
 
@@ -53,11 +53,11 @@ Unity のプロジェクトを作ります. 左の `Projects` をクリックし
 
 設定が終わったら, 右下の `Create Project` ボタンをクリックしてください.
 
-![Create Setting](./createsetting.png)
+![Create Setting](./createsetting.avif)
 
 しばらくすると, Unityのエディタが起動します. これでプロジェクトの作成は完了です. 以下の様な画面が表示されるはずです.
 
-![Open Project](./openproject.png)
+![Open Project](./openproject.avif)
 
 ## 2.2. Unity Editor のタブとレイアウト
 
@@ -92,7 +92,7 @@ Unity のプロジェクトを作ります. 左の `Projects` をクリックし
 
 これで, `Hierarchy` タブにあるシーンの名前が `MainScene` に変更されました.
 
-![renamedsamplescene](renamedsamplescene.png)
+![renamedsamplescene](renamedsamplescene.avif)
 
 ## 3.1. 板を配置する
 
@@ -118,7 +118,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 * (`Material`)
   * マテリアルを設定するプロパティ
 
-![Inspector Plane](./planeproperties.png)
+![Inspector Plane](./planeproperties.avif)
 
 ## 3.2. ボールを作る
 
@@ -128,11 +128,11 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 このままでは地面にめり込んでいるので, `Sphere` の `Trasform` の `Position` の `Y` を `5` に変更します.
 
-![ChangePos](./changepos.png)
+![ChangePos](./changeposavif)
 
 いい感じの位置になりました！
 
-![set Sphere Position](./setballposition.png)
+![set Sphere Position](./setballposition.avif)
 
 `Ctrl + S` で定期的に保存することを忘れないでください.
 
@@ -156,7 +156,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 `Sphere` に `Rigidbody` が追加されました！
 
-![addedrb](./addedrb.png)
+![addedrb](./addedrb.avif)
 
 上の方にある再生ボタン▶を押してみてください. ボールが落下します.
 
@@ -178,7 +178,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 作成時に名前を `BallController` にし忘れた場合は `BallController` を右クリックして `Rename` を選べばファイル名を変更できます. 違う名前でスクリプトを作成してしまった場合は、ファイル名だけでなく、クラス名も修正する必要があります。
 
-![named ball controller](./namedballcontroller.png)
+![named ball controller](./namedballcontroller.avif)
 
 `BallController`　をダブルクリックして開くと, Rider が起動します. (※このとき, visual studio が起動しても OK です. Visual Studio Code が開いた場合はなにか設定が間違っている可能性があります. )
 
