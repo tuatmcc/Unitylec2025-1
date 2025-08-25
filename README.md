@@ -72,7 +72,7 @@ Unity のプロジェクトを作ります. 左の `Projects` をクリックし
 |Inspector|選択したオブジェクトのプロパティ|
 |Console|ログの表示|
 
-![Exprain Editor](./expraineditor.png)
+![Exprain Editor](./expraineditor.avif)
 
 重なってるタブの切り替えは, タブの右上のタブの名前の部分をクリックすることで切り替えることができます.
 
@@ -182,7 +182,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 `BallController`　をダブルクリックして開くと, Rider が起動します. (※このとき, visual studio が起動しても OK です. Visual Studio Code が開いた場合はなにか設定が間違っている可能性があります. )
 
-![open ball controller](./openballcontroller.png)
+![open ball controller](./openballcontroller.avif)
 
 `BallController.cs` が開かれていることを確認してください. `.cs` は C# の拡張子です. (C言語だと `.c`, C++だと `.cpp`, pythonだと`.py`)
 
@@ -276,7 +276,7 @@ public class BallController : MonoBehaviour
 
 `Sphere` の Inspector に `BallController` がコンポーネントとして追加されるのがわかります. これで, スクリプトをゲームオブジェクトにアタッチできました.
 
-![attached script](./attachedscript.png)
+![attached script](./attachedscript.avif)
 
 Unityでは, スクリプトを書いてコンポーネント(要素)を作ります. そしてそのコンポーネントをゲームオブジェクトにアタッチすることで, ゲームオブジェクトに要素を追加します.
 
@@ -292,13 +292,13 @@ Unityでは, スクリプトを書いてコンポーネント(要素)を作り�
 
 `BallController` をダブルクリックして開いてください.
 
-![expreinballcontroller](./expreinballcontroller.png)
+![expreinballcontroller](./expreinballcontroller.avif)
 
 1行目の `using UnityEngine;` は, Unity の機能を使うための宣言です. C言語の `#include` のようなものです. Unity の機能を使うためには, この呪文が必要です
 
 3行目の `public class BallController : MonoBehaviour` は, `BallController` という**クラス**を定義しています. クラスはC#のオブジェクトというものの設計図です.コンポーネントはC#のオブジェクトとして存在してます.
 
-![exeprainclass](./exeprainclass.png)
+![exeprainclass](./exeprainclass.avif)
 
 変数 `rb` は `Rigidbody` 型の変数です. 任意のゲームオブジェクトに付いている `Rigidbody` コンポーネントを取得して代入することで, その `Rigidbody` を**参照**できます.
 
@@ -416,7 +416,7 @@ public class ScoreManager : MonoBehaviour
 
 EmptyObject は, コンポーネントが何もついていないゲームオブジェクトです(座標の概念はあります). Inspector を開くと, 何も表示されていないことがわかります.
 
-![emptyobject](./emptyobject.png)
+![emptyobject](./emptyobject.avif)
 
 このゲームオブジェクトに `ScoreManager` をアタッチします. `ScoreManager` スクリプトを `Project` タブから `ScoreManager` ゲームオブジェクトにドラッグアンドドロップしてください.
 
@@ -430,7 +430,7 @@ Inspector に `ScoreManager` がコンポーネントとして追加されてい
 
 再生ボタン ▶ を押してみてください. ステージ上にランダムな位置に `Score` が生成されることがわかります. 停止ボタン ■ を押して再び再生をすると, さっきと違う位置に `Score` が生成されます.
 
-![playcheckscore](./playcheckscore.png)
+![playcheckscore](./playcheckscore.avif)
 
 確認ができたら, 停止ボタン■を押して再生を停止してください. また, こまめに `Ctrl + S` で保存することを忘れないでください.
 
@@ -438,7 +438,7 @@ Inspector に `ScoreManager` がコンポーネントとして追加されてい
 
 `ScoreManager` をダブルクリックして開いてください.
 
-![exeprainscoremanager](./exeprainscoremanager.png)
+![exeprainscoremanager](./exeprainscoremanager.avif)
 
 変数 `scoreObject` は `GameObject` 型の変数です. 今回は `Score` の Prefab を代入することで, その Prefab を**参照**しています.
 
@@ -446,7 +446,7 @@ Inspector に `ScoreManager` がコンポーネントとして追加されてい
 
 この2つの変数は, `[SerializeField]` という**属性**というものをつけています. これを変数につけることで, Unity Editor の Inspector から変数を代入できるようにしています. こうすれば, 必要なパラメーターを Inspector から設定できるので, スクリプトを変更する必要がなくなります.  `BallController` の `_rb` には `[SerializeField]` をつけていないので, `Sphere` の Inspector を見ても `BallController` コンポーネントに `_rb` が表示されていないのがわかります.
 
-![ballcontrollernone](./ballcontrollernone.png)
+![ballcontrollernone](./ballcontrollernone.avif)
 
 `Random.Range` 関数は, 引数で指定された範囲のランダムな値を返します. ここでは, `-10` から `10` の範囲のランダムな少数値を `x` と `z` に代入しています.
 
@@ -458,7 +458,7 @@ Prefab はゲームオブジェクトの設計図なので, Prefabで設定し�
 
 これで再生すれば,生成された `Score` の大きさが小さくなっていることがわかります.
 
-![fixedscoresize](./fixedscoresize.png)
+![fixedscoresize](./fixedscoresize.avif)
 
 ## 6.4. カメラをボールに追従させる
 
@@ -656,7 +656,7 @@ public class BallController : MonoBehaviour
 
 ![checkdestroyscore](./checkdestroyscore.gif)
 
-![debuglog](./debuglog.png)
+![debuglog](./debuglog.avif)
 
 ## 7.2. スクリプトの説明
 
@@ -676,11 +676,11 @@ public class BallController : MonoBehaviour
 
 `Hierarchy` タブで `Plane` を選択し, `Scale` を `(5, 1, 5)` に変更してください.
 
-![planescale](./planescale.png)
+![planescale](./planescale.avif)
 
 ステージの壁も作りましょう. `Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択. 名前は `Wall` に変更してください. そして 4 方向分作るので, `Wall` を選択したまま `Ctrl + D` で複製してください. 以下の画像のようになります.
 
-![wall4](./wall4.png)
+![wall4](./wall4.avif)
 
 4 つの `Wall` の `Position` と `Scale` をそれぞれ以下のように変更してください. (写真は1つ目)
 
@@ -689,11 +689,11 @@ public class BallController : MonoBehaviour
 * Position: `(20, 2, 0)`, Scale `(1, 4, 40)`
 * Position: `(-20, 2, 0)`, Scale `(1, 4, 40)`
 
-![changewallpos](./changewallpos.png)
+![changewallpos](./changewallpos.avif)
 
 また, 今のままでは, スコアにふれると一瞬ボールの動きが止まってしまいます. これは物理演算をするための当たり判定があるためです. このゲームでは, スコアの当たり判定は物理演算の当たり判定は必要なく, スコアに触れたかどうかを判定するだけで十分です. そこで, `Project` タブにある `Score` Prefab の `Box Collider` の `Is Trigger` にチェックを入れてください.
 
-![changetrigger](./changetrigger.png)
+![changetrigger](./changetrigger.avif)
 
 そして, `BallController` の `OnCollisionEnter` 関数を `OnTriggerEnter` 関数に変更してください (引数の型も変わっているので注意してください).
 
@@ -776,11 +776,11 @@ public class BallController : MonoBehaviour
 
 TMP Importer が表示されるので, `Import TMP Essentials` をクリックしてください.
 
-![tmpimporter](./tmpimporter.png)
+![tmpimporter](./tmpimporter.avif)
 
 Canvas の子要素として `Text` が追加されました. `Game` タブをみると, `New Text` というテキストが表示されているのがわかります.
 
-![createdtext](./createdtext.png)
+![createdtext](./createdtext.avif)
 
 Canvas とは,  Unity で UI を使うときに必要なゲームオブジェクトです. UI を表示するためのゲームオブジェクトを Canvas の子要素として追加することで, 画面に UI を表示できます. UI は, ゲーム画面の上に重ねて表示されます.
 
@@ -792,7 +792,7 @@ Canvas とは,  Unity で UI を使うときに必要なゲームオブジェク
 
 これで, 左上の方にスコアが表示されるようになりました.
 
-![setuped](./setuped.png)
+![setuped](./setuped.avif)
 
 ## 9.3. スコアを表示するスクリプトを作成する
 
@@ -988,7 +988,7 @@ Scene の名前を `GameClear` に変更してください. そして, `GameClea
 
 `(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください. また, `Text` を `Game Clear` , `Font Size` を `100` に変更してください. テキストの色は好きな色で構いませんが,見やすい色にしてください. `Alignment` は文字の中央揃えにします.
 
-![gameclear](./gameclear.png)
+![gameclear](./gameclear.avif)
 
 ## 11.2. シーン遷移
 
@@ -1121,7 +1121,7 @@ Project で右クリック -> `Create` -> `Material` を選択
 
 `ScoreMaterial` を選択し, `Inspector` で `Base Map` の色を好きな色に変更してください. (例では黄緑っぽい色にしてみました)
 
-![changescorecolor](./changescorecolor.png)
+![changescorecolor](./changescorecolor.avif)
 
 `Score` プレバブに `ScoreMaterial` をドラッグアンドドロップしてください. そして再生ボタン ▶ を押してみてください. スコアゲームオブジェクトの色が変わっていることがわかります.
 
@@ -1281,7 +1281,7 @@ Hierarchy で `Sphere` を選択し, `Inspector` で `Add Component` をクリ�
 
 ビルド後, `Build` フォルダに実行ファイルが作成されます. 自分でつけたゲームのタイトル名の実行ファイルがビルドしてできたゲームです.
 
-![buildresult](./buildresult.png)
+![buildresult](./buildresult.avif)
 
 # 15. さいごに
 
