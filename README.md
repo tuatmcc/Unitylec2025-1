@@ -122,7 +122,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 ## 3.2. ボールを作る
 
-`Hierarchy` タブで右クリック -> `3D Object` -> `Sphere` を選択(名前は `Sphere` のままでOK)
+`Hierarchy` タブで右クリック → `3D Object` → `Sphere` を選択(名前は `Sphere` のままでOK)
 
 ![Create Sphere](./createball.gif)
 
@@ -150,7 +150,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 ## 4.1. Rigidbody を追加する
 
-`Hierarchy` タブで `Sphere` を選択し, `Inspector` タブで下の方にある `Add Component` -> `Physics` -> `Rigidbody` をクリック
+`Hierarchy` タブで `Sphere` を選択し, `Inspector` タブで下の方にある `Add Component` → `Physics` → `Rigidbody` をクリック
 
 ![setrbody](./setrb.gif)
 
@@ -172,7 +172,7 @@ Hierarchyで `Plane` を選択すると, 右側の `Inspector` タブに `Plane`
 
 ## 5.1. スクリプトを作成する
 
-`Project` タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script` を選択してください. このとき, ファイル名を `BallController` にしてください.
+`Project` タブで `Assets` フォルダー上で右クリック → `Create` → `MonoBehaviour Script` を選択してください. このとき, ファイル名を `BallController` にしてください.
 
 ![create ball script](./createballscript.gif)
 
@@ -314,7 +314,7 @@ Unityでは, スクリプトを書いてコンポーネント(要素)を作り�
 
 ## 6.1. 得点となるゲームオブジェクトのPrefabを作成する
 
-`Hierarchy` タブで右クリック -> `3D Object` -> `Cube` を選択
+`Hierarchy` タブで右クリック → `3D Object` → `Cube` を選択
 
 オブジェクト名は `Score` に変更してください. 作成時に名前を変更し忘れた際は, ゲームオブジェクトを右クリックして `Rename` を選択するか, 選択してF2キーを押して名前を変更できます.
 
@@ -336,7 +336,7 @@ Prefab とは, ゲームオブジェクトの**設計図**のようなもので�
 
 得点のオブジェクトを生成するスクリプトを作成します.
 
-`Project`タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script` を選択してください.
+`Project`タブで `Assets` フォルダー上で右クリック → `Create` → `MonoBehaviour Script` を選択してください.
 
 スクリプトの名前を `ScoreManager` にしてください.
 
@@ -408,7 +408,7 @@ public class ScoreManager : MonoBehaviour
 
 スコアを管理するゲームオブジェクトを作成します.
 
-`Hierarchy` タブで右クリック -> `Create Empty` を選択
+`Hierarchy` タブで右クリック → `Create Empty` を選択
 
 ゲームオブジェクト名を `ScoreManager` にしてください.
 
@@ -464,7 +464,7 @@ Prefab はゲームオブジェクトの設計図なので, Prefabで設定し�
 
 ここでは, カメラをボールに追従させます.
 
-`Project` タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `CameraController` という名前のスクリプトを作成して, 以下のように書き換えてください.
+`Project` タブで `Assets` フォルダー上で右クリック → `Create` → `MonoBehaviour Script`を選択して `CameraController` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
 ```diff lang="" title="CameraController.cs" showLineNumbers
 using UnityEngine;
@@ -678,7 +678,7 @@ public class BallController : MonoBehaviour
 
 ![planescale](./planescale.avif)
 
-ステージの壁も作りましょう. `Hierarchy`で右クリック -> `3D Object` -> `Cube` を選択. 名前は `Wall` に変更してください. そして 4 方向分作るので, `Wall` を選択したまま `Ctrl + D` で複製してください. 以下の画像のようになります.
+ステージの壁も作りましょう. `Hierarchy`で右クリック → `3D Object` → `Cube` を選択. 名前は `Wall` に変更してください. そして 4 方向分作るので, `Wall` を選択したまま `Ctrl + D` で複製してください. 以下の画像のようになります.
 
 ![wall4](./wall4.avif)
 
@@ -770,7 +770,7 @@ public class BallController : MonoBehaviour
 
 ## 9.2. テキストの追加
 
-`Hierarchy`で右クリック -> `UI` -> `Text - TextMeshPro` を選択
+`Hierarchy`で右クリック → `UI` → `Text - TextMeshPro` を選択
 
 ![create text](./createtext.gif)
 
@@ -883,19 +883,19 @@ Scene とは,  Unity でゲームを作るときに必要なゲームオブジ�
 
 ## 10.1. ゲームタイトルシーンを作成する
 
-Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択してください.名前は `TitleScene` にしてください.
+Project → `Assets/Scenes` で右クリック → `Create` → `Scene` → `Scene` を選択してください.名前は `TitleScene` にしてください.
 
 ![createtitlescene](./createtitlescene.gif)
 
 `TitleScene` 作成したらダブルクリックして開いてください.
 
-Unity では, シーンを作成したら `Build Profiles` に追加する必要があります. 左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください. これで `TitleScene` が Build Profiles に追加されます. `MainScene` ははじめから追加されています.
+Unity では, シーンを作成したら `Build Profiles` に追加する必要があります. 左上の `File` → `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください. これで `TitleScene` が Build Profiles に追加されます. `MainScene` ははじめから追加されています.
 
 ![addscenelist](addscenelist.gif)
 
 ## 10.2. タイトルのテキスト
 
-`Hierarchy` タブで右クリック -> `UI` -> `Text - TextMeshPro` を選択
+`Hierarchy` タブで右クリック → `UI` → `Text - TextMeshPro` を選択
 
 オブジェクト名は `Title` に変更してください. そして, `Title` の `(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください. また, `Title` の Text を `RollingBall` , `Font Size` を `100` に変更してください. テキストの色は好きな色で構いませんが, 見やすい色にしてください. `Alignment` で文字を中央揃えにしたり, 左揃えにしたりできます. ここでは上下左右ともに中央揃えにします.
 
@@ -903,7 +903,7 @@ Unity では, シーンを作成したら `Build Profiles` に追加する必要
 
 ## 10.3. スタートボタン
 
-`Hierarchy` で右クリック -> `UI` -> `Button - TextMeshPro` を選択
+`Hierarchy` で右クリック → `UI` → `Button - TextMeshPro` を選択
 
 オブジェクト名は `StartButton` に変更してください. そして, `StartButton` の `(PosX, PosY, PosZ)` を `(0, -200, 0)`, `(Width, Height)` を `(500, 100)` に変更してください. `Hierarchy` タブの `StartButton` の左側にある ▶ をクリックすると ▼ になり, `StartButton` ゲームオブジェクトの子オブジェクトであるボタンのテキストのオブジェクトが表示されます. この子オブジェクトの `Text` を `Click Start` に変更して, `Font Size` を `60` に変更してください.
 
@@ -911,7 +911,7 @@ Unity では, シーンを作成したら `Build Profiles` に追加する必要
 
 ## 10.4. シーン遷移
 
-`Project` タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `TitleManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
+`Project` タブで `Assets` フォルダー上で右クリック → `Create` → `MonoBehaviour Script`を選択して `TitleManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
 ```diff lang="csharp" title="TitleManager.cs" showLineNumbers
 using UnityEngine;
@@ -940,13 +940,13 @@ public class TitleManager : MonoBehaviour
 
 ```
 
-Hierarchy で右クリック -> `Create Empty` を選択
+Hierarchy で右クリック → `Create Empty` を選択
 
 オブジェクト名は `TitleManager` に変更してください. そして, 今作った `TitleManager` オブジェクトに `TitleManager` スクリプトをアタッチしてください.
 
 ![createtitlemanager](./createtitlemanager.gif)
 
-Hierarchy の `StartButton` を選択し, `Inspector` で `Button` コンポーネントの `On Click()` の右下の方にある `+` をクリック. 左下には Hierarchy の `TitleManager` ゲームオブジェクトをドラッグアンドドロップ. そして `NoFunction` をクリックしての `TitleManager -> OnButtonClicked` を選択してください.
+Hierarchy の `StartButton` を選択し, `Inspector` で `Button` コンポーネントの `On Click()` の右下の方にある `+` をクリック. 左下には Hierarchy の `TitleManager` ゲームオブジェクトをドラッグアンドドロップ. そして `NoFunction` をクリックしての `TitleManager → OnButtonClicked` を選択してください.
 
 ![setonbuttonclicked](./setonbuttonclicked.gif)
 
@@ -974,17 +974,17 @@ Hierarchy の `StartButton` を選択し, `Inspector` で `Button` コンポー�
 
 ## 11.1. ゲームクリアシーンを作成する
 
-Project -> `Assets/Scenes` で右クリック -> `Create` -> `Scene` -> `Scene` を選択
+Project → `Assets/Scenes` で右クリック → `Create` → `Scene` → `Scene` を選択
 
 Scene の名前を `GameClear` に変更してください. そして, `GameClear` をダブルクリックして開いてください.
 
-そして, 左上の `File` -> `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください. これで `GameClear` が Build Profiles に追加されます.
+そして, 左上の `File` → `Build Profiles` を選択して, Scene List の `Add Open Scenes` をクリックしてください. これで `GameClear` が Build Profiles に追加されます.
 
 ![createclearscene](./createclearscene.gif)
 
 ゲームクリアのテキストを作成します.
 
-`Hierarchy` で右クリック -> `UI` -> `Text - TextMeshPro` を選択
+`Hierarchy` で右クリック → `UI` → `Text - TextMeshPro` を選択
 
 `(PosX, PosY, PosZ)` を `(0, 0, 0)`, `(Width, Height)` を `(700, 100)` に変更してください. また, `Text` を `Game Clear` , `Font Size` を `100` に変更してください. テキストの色は好きな色で構いませんが,見やすい色にしてください. `Alignment` は文字の中央揃えにします.
 
@@ -994,7 +994,7 @@ Scene の名前を `GameClear` に変更してください. そして, `GameClea
 
 クリアシーンでクリックするとタイトルシーンに遷移するようにします.
 
-`Project` タブで `Assets` フォルダー上で右クリック -> `Create` -> `MonoBehaviour Script`を選択して `GameClearManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
+`Project` タブで `Assets` フォルダー上で右クリック → `Create` → `MonoBehaviour Script`を選択して `GameClearManager` という名前のスクリプトを作成して, 以下のように書き換えてください.
 
 ```diff lang="csharp" title="GameClearManager.cs" showLineNumbers
 using UnityEngine;
@@ -1025,7 +1025,7 @@ public class GameClearManager : MonoBehaviour
 
 ![backtotitlebutton](./backtotitlebutton.gif)
 
-`Hierarchy` で右クリック -> `Create Empty` を選択して `GameClearManager` を作成してください. そして, 今作った `GameClearManager` オブジェクトに `GameClearManager` スクリプトをアタッチしてください. そしてタイトルシーンと同じように, `GameClearManager` の `On Click()` に `GameClearManager -> OnButtonClicked` を設定してください.
+`Hierarchy` で右クリック → `Create Empty` を選択して `GameClearManager` を作成してください. そして, 今作った `GameClearManager` オブジェクトに `GameClearManager` スクリプトをアタッチしてください. そしてタイトルシーンと同じように, `GameClearManager` の `On Click()` に `GameClearManager → OnButtonClicked` を設定してください.
 
 ![setclearbutton](./setclearbutton.gif)
 
@@ -1113,7 +1113,7 @@ public class BallController : MonoBehaviour
 
 ## 12.1. スコアの見た目を変更する
 
-Project で右クリック -> `Create` -> `Material` を選択
+Project で右クリック → `Create` → `Material` を選択
 
 マテリアルの名前を `ScoreMaterial` に変更してください.
 
@@ -1139,7 +1139,7 @@ Project で右クリック -> `Create` -> `Material` を選択
 
 ダウンロードしたら, `Assets` にドラッグアンドドロップしてください.
 
-Assets で右クリック -> `Create` -> `Material` を選択
+Assets で右クリック → `Create` → `Material` を選択
 
 マテリアルの名前を `BallMaterial` に変更してください.
 
@@ -1233,7 +1233,7 @@ public class BallController : MonoBehaviour
 }
 ```
 
-Hierarchy で `Sphere` を選択し, `Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
+Hierarchy で `Sphere` を選択し, `Inspector` で `Add Component` をクリック → `Audio` → `Audio Source` を選択
 
 `Sphere` の `BallController` の Inspector にある `Score Sound` に `成功音` をドラッグアンドドロップしてください.
 
@@ -1243,7 +1243,7 @@ Hierarchy で `Sphere` を選択し, `Inspector` で `Add Component` をクリ�
 
 ## 13.2. BGMを鳴らす
 
-`Hierarchy` で `Main Camera` を選択し, `Inspector` で `Add Component` をクリック -> `Audio` -> `Audio Source` を選択
+`Hierarchy` で `Main Camera` を選択し, `Inspector` で `Add Component` をクリック → `Audio` → `Audio Source` を選択
 
 `Main Camera` の Inspector にある `Audio Resource` の `AudioClip` にお好きな曲をドラッグアンドドロップしてください. そして,  `Play On Awake` と `Loop` にチェックを入れてください.
 
@@ -1265,13 +1265,13 @@ Hierarchy で `Sphere` を選択し, `Inspector` で `Add Component` をクリ�
 
 ## 14.1. シーンの設定
 
-`File` -> `Build Profiles` で `Scene List` を開いてください. `Scene List` で,  `TitleScene` が一番上に来るようにドラッグアンドドロップしてください. ビルド後のゲームは, 一番上にあるシーンから始まります.
+`File` → `Build Profiles` で `Scene List` を開いてください. `Scene List` で,  `TitleScene` が一番上に来るようにドラッグアンドドロップしてください. ビルド後のゲームは, 一番上にあるシーンから始まります.
 
 ![toptotitlescene](./toptotitlescene.gif)
 
 ## 14.2. ビルド
 
-`File` -> `Build Profiles` でPlatformsから自身のOSを選択してください.
+`File` → `Build Profiles` でPlatformsから自身のOSを選択してください.
 
 * Windows
 
